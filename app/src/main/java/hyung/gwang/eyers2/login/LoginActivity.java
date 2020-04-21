@@ -61,7 +61,7 @@ public class LoginActivity extends AppCompatActivity {
                 LoginActivity.this.startActivity(registerIntent);
             }
         });
-        //아이디 찾기 버튼 눌렀을때
+        //아이디 찾기 버튼 눌렀을때.
         idButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
