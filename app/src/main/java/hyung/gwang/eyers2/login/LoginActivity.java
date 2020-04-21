@@ -142,7 +142,7 @@ public class LoginActivity extends AppCompatActivity {
 
     //네트워크 연결됬는지 확인 해주는 함수.
     private void networkconnected() {
-        //데이터 연결 여부확인해보자.
+        //데이터 연결 여부확인해보자!!!
         if (false == isConnected()) {
             Toast.makeText(this, "네트워크가 연결되지 않았습니다.", Toast.LENGTH_LONG).show();
             return;
