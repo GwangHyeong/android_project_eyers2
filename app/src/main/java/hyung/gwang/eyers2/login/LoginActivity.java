@@ -69,7 +69,7 @@ public class LoginActivity extends AppCompatActivity {
                 LoginActivity.this.startActivity(idIntent);
             }
         });
-        //패스워드 찾기 버튼 눌렀을대
+        //패스워드 찾기 버튼 눌렀을때.
         pwButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
