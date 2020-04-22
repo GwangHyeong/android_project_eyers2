@@ -6,29 +6,11 @@
       android:orientation="vertical"
       android:gravity="center">
 
-    <TextView
-          android:id="@+id/item_subtitle"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:textAppearance="?android:attr/textAppearanceLarge"
-          android:text="Page:"/>
-
-    <TextView
-          android:id="@+id/item_title"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:textSize="80sp" />
 
     <Button
-        android:hint="1234"
+        android:background="@drawable/notice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/testbutton"/>
-    <TextView
-        android:id="@+id/item_test"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="ttest"
-        android:visibility="visible"
-        android:textSize="80sp" />
+
 </LinearLayout>

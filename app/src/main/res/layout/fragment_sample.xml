@@ -7,10 +7,12 @@
     <hyung.gwang.eyers2.fragment.SlidingTabLayout
           android:id="@+id/sliding_tabs"
           android:layout_width="match_parent"
-          android:layout_height="wrap_content" />
+          android:layout_height="wrap_content"
+          android:theme="@style/TabTheme"/>
 
     <androidx.viewpager.widget.ViewPager
           android:id="@+id/viewpager"
+          android:theme="@style/TabTheme"
           android:layout_width="match_parent"
           android:layout_height="0px"
           android:layout_weight="1"

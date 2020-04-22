@@ -1,21 +1,8 @@
-/*
- * Copyright (C) 2013 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+
 
 package hyung.gwang.eyers2.fragment;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -24,9 +11,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 
 
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
@@ -61,7 +48,7 @@ public class SlidingTabsBasicFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-//        super.onCreateView(inflater, container, savedInstanceState);
+
 
 
         return inflater.inflate(R.layout.fragment_sample, container, false);
@@ -69,15 +56,7 @@ public class SlidingTabsBasicFragment extends Fragment {
     }
 
     // BEGIN_INCLUDE (fragment_onviewcreated)
-    /**
-     * This is called after the {@link #onCreateView(LayoutInflater, ViewGroup, Bundle)} has finished.
-     * Here we can pick out the {@link View}s we need to configure from the content view.
-     *
-     * We set the {@link ViewPager}'s adapter to be an instance of {@link SamplePagerAdapter}. The
-     * {@link SlidingTabLayout} is then given the {@link ViewPager} so that it can populate itself.
-     *
-     * @param view View created in {@link #onCreateView(LayoutInflater, ViewGroup, Bundle)}
-     */
+
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
@@ -92,7 +71,7 @@ public class SlidingTabsBasicFragment extends Fragment {
 
         // BEGIN_INCLUDE (setup_slidingtablayout)
         // Give the SlidingTabLayout the ViewPager, this must be done AFTER the ViewPager has had
-        // it's PagerAdapter set.
+        // 페이지 어댑터 설정
         mSlidingTabLayout = (SlidingTabLayout) view.findViewById(R.id.sliding_tabs);
         mSlidingTabLayout.setViewPager(mViewPager);
         // END_INCLUDE (setup_slidingtablayout)
@@ -112,23 +91,14 @@ public class SlidingTabsBasicFragment extends Fragment {
             return 4;
         }
 
-        /**
-         * @return true if the value returned from {@link #instantiateItem(ViewGroup, int)} is the
-         * same object as the {@link View} added to the {@link ViewPager}.
-         */
+
         @Override
         public boolean isViewFromObject(View view, Object o) {
             return o == view;
         }
 
         // BEGIN_INCLUDE (pageradapter_getpagetitle)
-        /**
-         * Return the title of the item at {@code position}. This is important as what this method
-         * returns is what is displayed in the {@link SlidingTabLayout}.
-         * <p>
-         * Here we construct one using the position value, but for real application the title should
-         * refer to the item's contents.
-         */
+
         @Override
         public CharSequence getPageTitle(int position) {
             if(position == 0){
@@ -160,11 +130,11 @@ public class SlidingTabsBasicFragment extends Fragment {
             container.addView(view);
             Log.e("position!!!", String.valueOf(position));
             // Retrieve a TextView from the inflated View, and update it's text
-            TextView title = (TextView) view.findViewById(R.id.item_title);
 
             switch (position){
                 case 0:
                     Button button = (Button) view.findViewById(R.id.testbutton);
+                    button.setBackgroundResource(R.drawable.notice);
                     button.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -180,6 +150,7 @@ public class SlidingTabsBasicFragment extends Fragment {
                     break;
                 case 1:
                     Button button2 = (Button) view.findViewById(R.id.testbutton);
+                    button2.setBackgroundResource(R.drawable.logo);
                     button2.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -223,9 +194,6 @@ public class SlidingTabsBasicFragment extends Fragment {
                         }
                     });
             }
-
-            title.setText(String.valueOf(position ));
-            pagenumber =  title.getText().toString();
 
 
             // Return the View
