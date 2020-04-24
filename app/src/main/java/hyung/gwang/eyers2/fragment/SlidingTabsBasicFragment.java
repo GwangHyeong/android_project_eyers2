@@ -150,7 +150,7 @@ public class SlidingTabsBasicFragment extends Fragment {
                     break;
                 case 1:
                     Button button2 = (Button) view.findViewById(R.id.testbutton);
-                    button2.setBackgroundResource(R.drawable.logo);
+                    button2.setBackgroundResource(R.drawable.genealogy);
                     button2.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -166,6 +166,7 @@ public class SlidingTabsBasicFragment extends Fragment {
                     break;
                 case 2:
                     Button button3 = (Button) view.findViewById(R.id.testbutton);
+                    button3.setBackgroundResource(R.drawable.freeboard);
                     button3.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -181,6 +182,7 @@ public class SlidingTabsBasicFragment extends Fragment {
                     break;
                 case 3:
                     Button button4 = (Button) view.findViewById(R.id.testbutton);
+                    button4.setBackgroundResource(R.drawable.qna);
                     button4.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
