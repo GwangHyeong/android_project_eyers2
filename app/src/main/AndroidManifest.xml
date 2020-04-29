@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="hyung.gwang.eyers2">
 
+
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET"/>
     <application
@@ -19,8 +20,9 @@
         <activity android:name=".view.PageTestTwo"/>
         <activity android:name=".view.PageTestThree"/>
         <activity android:name=".view.PageTestFour"/>
+        <activity android:name=".view.AdminActivity"/>
 
-
+        <uses-library android:name="org.apache.http.legacy" android:required="false" />
 
         <activity android:name=".login.LoginActivity">
             <intent-filter>

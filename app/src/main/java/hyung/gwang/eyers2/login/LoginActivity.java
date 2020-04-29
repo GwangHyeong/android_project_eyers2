@@ -92,6 +92,11 @@ public class LoginActivity extends AppCompatActivity {
                 String user_pw = passwordText.getText().toString();
                 Log.e(this.getClass().getName(), "로그인버튼 입력");
 
+                if(user_id.equals("admin")){
+                    if(user_pw.equals("123456")){
+
+                    }
+                }
 
                 Response.Listener<String> responseLisner = new Response.Listener<String>() {
 
