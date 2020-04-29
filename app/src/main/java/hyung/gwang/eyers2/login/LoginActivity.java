@@ -27,6 +27,7 @@ import hyung.gwang.eyers2.request.LoginRequest;
 import hyung.gwang.eyers2.scan.ScanIdActivity;
 import hyung.gwang.eyers2.scan.ScanPwActivity;
 import hyung.gwang.eyers2.thread.HttpMgrThread;
+import hyung.gwang.eyers2.view.AdminActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -94,7 +95,14 @@ public class LoginActivity extends AppCompatActivity {
 
                 if(user_id.equals("admin")){
                     if(user_pw.equals("123456")){
-
+                        AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+                        dialog = builder.setMessage("관리자 모드")
+                                .setPositiveButton("확인", null)
+                                .create();
+                        dialog.show();
+                        Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
+                        LoginActivity.this.startActivity(intent);
+                        finish();
                     }
                 }
 
