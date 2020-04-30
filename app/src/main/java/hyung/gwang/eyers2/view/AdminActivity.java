@@ -1,11 +1,14 @@
 package hyung.gwang.eyers2.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+import hyung.gwang.eyers2.MainActivity;
 import hyung.gwang.eyers2.R;
+import hyung.gwang.eyers2.login.LoginActivity;
 
 public class AdminActivity  extends AppCompatActivity {
     /**상단 선언부**/
@@ -20,6 +23,8 @@ public class AdminActivity  extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                Intent intent = new Intent(AdminActivity.this, AdminWriteActivity.class);
+                AdminActivity.this.startActivity(intent);
             }
         });
     }
