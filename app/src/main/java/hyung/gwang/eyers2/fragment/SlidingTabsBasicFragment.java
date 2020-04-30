@@ -2,7 +2,6 @@
 
 package hyung.gwang.eyers2.fragment;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -13,13 +12,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import hyung.gwang.eyers2.R;
 import hyung.gwang.eyers2.view.PageTestFour;
-import hyung.gwang.eyers2.view.PageTestOne;
+import hyung.gwang.eyers2.view.NoticeActivity;
 import hyung.gwang.eyers2.view.PageTestThree;
 import hyung.gwang.eyers2.view.PageTestTwo;
 
@@ -141,7 +139,7 @@ public class SlidingTabsBasicFragment extends Fragment {
                             Intent intent;
                             switch (v.getId()) {
                                 case R.id.testbutton:
-                                        intent = new Intent(v.getContext(), PageTestOne.class);
+                                        intent = new Intent(v.getContext(), NoticeActivity.class);
                                         startActivity(intent);
                                         Log.e("pagenumbertest0",pagenumber+"클릭");
                             }

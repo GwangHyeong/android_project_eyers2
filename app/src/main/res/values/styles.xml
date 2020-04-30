@@ -22,4 +22,224 @@
 
         <item name="colorAccent">@android:color/white</item>                    <!-- 하단 움직이는 바 색-->
     </style>
+    <!--Login Activity-->
+    <style name="college_name">
+        <item name="android:layout_width">@integer/layout_match_parent</item>
+        <item name="android:layout_height">@integer/layout_wrap_content</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/domine</item>
+        <item name="android:textSize">50sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="login_edit_text">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:imeOptions">flagNoFullscreen</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textColorHint">@color/white</item>
+        <item name="android:theme">@style/cursor_green</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">136dp</item>
+        <item name="android:drawablePadding">@dimen/login_edt_drawable_padding</item>
+        <item name="android:padding">28dp</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:fontFamily">@font/open_sans</item>
+    </style>
+    <!--Cursor-->
+    <style name="cursor_green">
+        <item name="colorControlNormal">@android:color/transparent</item>
+        <item name="colorControlActivated">@color/prestoDarker</item>
+    </style>
+
+    <style name="login_view_line">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/white_line</item>
+    </style>
+
+
+
+    <style name="LoginActivity" parent="AppTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorPrimaryDark">@color/pink_primary_dark</item>
+
+    </style>
+
+    <style name="HomeActivity" parent="AppTheme">
+        <item name="android:actionModeBackground">@color/prestoPrimary</item>
+
+        <item name="windowActionModeOverlay">true</item>
+    </style>
+
+
+    <!--App Bar-->
+    <style name="AppBar" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">@color/white</item>
+    </style>
+
+    <style name="ToolbarTitle" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">@dimen/appbar_title_size</item>
+
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+
+
+    <style name="cursor_pink">
+        <item name="colorControlNormal">@android:color/transparent</item>
+        <item name="colorControlActivated">@color/pink_primary</item>
+    </style>
+
+
+
+
+
+    <!--Register Activity-->
+    <style name="register_view_line">
+        <item name="android:layout_width">@dimen/register_view_line_width</item>
+        <item name="android:layout_height">@integer/layout_match_parent</item>
+        <item name="android:background">@color/gray</item>
+    </style>
+
+    <style name="register_field_layout">
+        <item name="android:layout_width">@integer/layout_match_parent</item>
+
+        <item name="android:layout_marginTop">18dp</item>
+
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="register_edt">
+        <item name="android:imeOptions">flagNoExtractUi</item>
+        <item name="android:layout_height">@integer/layout_match_parent</item>
+        <item name="android:textColor">@color/blue_light</item>
+
+        <item name="android:theme">@style/cursor_pink</item>
+
+    </style>
+
+    <style name="register_img" parent="Theme.AppCompat">
+        <item name="android:tint">@color/pink_primary_dark</item>
+
+    </style>
+
+    <style name="register_spn">
+        <item name="android:layout_width">@integer/layout_match_parent</item>
+
+        <item name="android:padding">@dimen/register_spn_padding</item>
+
+    </style>
+
+    <style name="register_radio_btn">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">@integer/layout_match_parent</item>
+        <item name="android:textColor">@color/blue_light</item>
+
+
+    </style>
+
+    <!--Login Activity-->
+
+
+
+
+    <style name="login_button">
+        <item name="android:layout_width">@integer/layout_match_parent</item>
+        <item name="android:layout_height">35dp</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/open_sans</item>
+
+    </style>
+
+
+
+
+    <!--UserLogin Profile List Activity-->
+    <style name="profile_list_field_img">
+
+        <item name="android:scaleType">fitXY</item>
+    </style>
+
+    <style name="profile_list_field_text">
+        <item name="android:layout_width">@integer/layout_wrap_content</item>
+        <item name="android:layout_height">@integer/layout_wrap_content</item>
+        <item name="android:textColor">@color/black_light</item>
+
+    </style>
+
+    <style name="profile_list_title_text">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black_dark</item>
+        <item name="android:textStyle">bold</item>
+
+    </style>
+
+
+    <style name="CustomTIL" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_centerHorizontal">true</item>
+    </style>
+
+
+    <!--edit profile-->
+
+    <style name="edit_profile_field_layout">
+        <item name="android:layout_width">@integer/layout_match_parent</item>
+
+        <item name="android:layout_marginTop">18dp</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="edit_profile_base_img">
+
+    </style>
+
+    <style name="edit_profile_img" parent="edit_profile_base_img">
+        <item name="android:tint">@color/white</item>
+        <item name="android:background">@color/prestoPrimary</item>
+    </style>
+
+
+    <style name="edit_profile_img_btn" parent="edit_profile_base_img">
+        <item name="android:background">@color/editTextBG</item>
+    </style>
+
+
+    <style name="edit_profile_edt">
+        <item name="android:background">@color/editTextBG</item>
+        <item name="android:layout_height">@integer/layout_match_parent</item>
+        <item name="android:textColor">@color/edit_profile_text</item>
+
+
+    </style>
+
+    <style name="edit_profile_radio_btn" parent="register_radio_btn">
+        <item name="android:textColor">@color/edit_profile_text</item>
+    </style>
+
+    <style name="edit_profile_spn" parent="register_spn" />
+
+
+    <style name="edit_profile_view_line" parent="register_view_line">
+        <item name="android:layout_width">@dimen/register_view_line_width</item>
+        <item name="android:layout_height">@integer/layout_match_parent</item>
+        <item name="android:background">@color/gray</item>
+    </style>
+
+    <style name="edit_profile_edt_name" parent="edit_profile_edt">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">0.49</item>
+        <item name="android:inputType">textPersonName</item>
+        <item name="android:maxLength">15</item>
+    </style>
 </resources>

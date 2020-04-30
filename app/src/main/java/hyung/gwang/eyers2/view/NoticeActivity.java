@@ -21,7 +21,7 @@ import hyung.gwang.eyers2.R;
 import hyung.gwang.eyers2.adapter.NoticeListAdapter;
 import hyung.gwang.eyers2.request.NoticeRequest;
 
-public class PageTestOne extends AppCompatActivity {
+public class NoticeActivity extends AppCompatActivity {
 
     private ListView noticeListView;
     private NoticeListAdapter adapter;

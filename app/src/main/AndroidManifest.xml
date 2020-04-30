@@ -18,7 +18,7 @@
         <activity android:name=".MainActivity"></activity>
         <activity android:name=".scan.ScanIdActivity"></activity>
         <activity android:name=".scan.ScanPwActivity"></activity>
-        <activity android:name=".view.PageTestOne"/>
+        <activity android:name=".view.NoticeActivity"/>
         <activity android:name=".view.PageTestTwo"/>
         <activity android:name=".view.PageTestThree"/>
         <activity android:name=".view.PageTestFour"/>
