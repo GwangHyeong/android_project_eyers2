@@ -13,5 +13,7 @@ public class NoticeInsertActivity extends AppCompatActivity {
         super.onCreate(bundle);
         setContentView(R.layout.activity_scanid);
 
+
+
     }
 }
