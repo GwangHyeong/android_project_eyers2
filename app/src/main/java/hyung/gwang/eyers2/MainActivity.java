@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
             transaction.commit();
         }
 
-        //상태바 색 변경
+        //상태바 색 변경.
         actionbarcolor();
 
 
