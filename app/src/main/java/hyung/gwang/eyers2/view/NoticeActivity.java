@@ -1,9 +1,13 @@
 package hyung.gwang.eyers2.view;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -19,6 +23,7 @@ import java.util.List;
 import androidx.appcompat.app.AppCompatActivity;
 import hyung.gwang.eyers2.R;
 import hyung.gwang.eyers2.adapter.NoticeListAdapter;
+import hyung.gwang.eyers2.detail.NoticeDetailActivity;
 import hyung.gwang.eyers2.request.NoticeRequest;
 
 public class NoticeActivity extends AppCompatActivity {
@@ -41,7 +46,28 @@ public class NoticeActivity extends AppCompatActivity {
 
 
         new BackgroundTask().execute();
+
+        noticeListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.e("test", "아이템클릭, postion : " + position +
+                        ", id : " + id);
+                Toast.makeText(getApplicationContext(), " 상세 보기", Toast.LENGTH_SHORT).show();
+                Log.e("ListenerTest","L_TEST"+position);
+
+
+                Intent intent = new Intent(NoticeActivity.this, NoticeDetailActivity.class);
+                //Error 드디어찾은곳. Integer을 형변환 하지않고 String 에 뿌려서 그런듯;?
+                intent.putExtra("key_id",String.valueOf(position)); //값 전달하기.
+
+                //값잘넘겻는지 로그캣 확인
+                int listentest = position;
+                Log.e("ListenerTest", String.valueOf(listentest));
+                startActivity(intent);
+            }
+        });
     }
+
 
     //PHP서버에 접속해서 JSON타입으로 데이터를 가져옴
     class BackgroundTask extends AsyncTask<Void, Void, String> {
