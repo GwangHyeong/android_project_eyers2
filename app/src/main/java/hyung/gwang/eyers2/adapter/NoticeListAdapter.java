@@ -1,6 +1,7 @@
 package hyung.gwang.eyers2.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -14,6 +15,7 @@ import hyung.gwang.eyers2.request.NoticeRequest;
 public class NoticeListAdapter extends BaseAdapter {
     private Context context;
     private List<NoticeRequest> noticedList;
+    public int result_seq;
     public NoticeListAdapter(Context context, List<NoticeRequest> noticedList){
         this.context = context;
         this.noticedList = noticedList;
@@ -39,10 +41,13 @@ public class NoticeListAdapter extends BaseAdapter {
         TextView noticeText = (TextView)v.findViewById(R.id.noticeText);
         TextView nameText = (TextView)v.findViewById(R.id.nameText);
         TextView dateText = (TextView)v.findViewById(R.id.dateText);
+        TextView seqText = (TextView)v.findViewById(R.id.seqText);
         noticeText.setText(noticedList.get(position).getNotice());
         nameText.setText(noticedList.get(position).getName());
         dateText.setText(noticedList.get(position).getDate());
+        seqText.setText(String.valueOf(noticedList.get(position).getSeq()));
         v.setTag(noticedList.get(position).getNotice());
         return v;
     }
+
 }

@@ -1,12 +1,16 @@
 package hyung.gwang.eyers2.view;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.Layout;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -28,9 +32,11 @@ import hyung.gwang.eyers2.request.NoticeRequest;
 
 public class NoticeActivity extends AppCompatActivity {
 
+
     private ListView noticeListView;
     private NoticeListAdapter adapter;
     private List<NoticeRequest> noticedList;
+    String result_seq;
 
 
     @Override
@@ -41,13 +47,17 @@ public class NoticeActivity extends AppCompatActivity {
         noticeListView = (ListView)findViewById(R.id.noticeListView);
         noticedList = new ArrayList<NoticeRequest>();
 
+
+
         adapter = new NoticeListAdapter(getApplicationContext(), noticedList);
         noticeListView.setAdapter(adapter);
 
-
         new BackgroundTask().execute();
 
+        //클릭
         noticeListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.e("test", "아이템클릭, postion : " + position +
@@ -56,9 +66,13 @@ public class NoticeActivity extends AppCompatActivity {
                 Log.e("ListenerTest","L_TEST"+position);
 
 
+                TextView seqText = (TextView)view.findViewById(R.id.seqText);
+                String result_seq = (seqText.getText().toString());
+                Log.e("result_seq", String.valueOf(result_seq));
+
                 Intent intent = new Intent(NoticeActivity.this, NoticeDetailActivity.class);
                 //Error 드디어찾은곳. Integer을 형변환 하지않고 String 에 뿌려서 그런듯;?
-                intent.putExtra("key_id",String.valueOf(position)); //값 전달하기.
+                intent.putExtra("key_id",String.valueOf(result_seq)); //값 전달하기.
 
                 //값잘넘겻는지 로그캣 확인
                 int listentest = position;
@@ -70,8 +84,11 @@ public class NoticeActivity extends AppCompatActivity {
 
 
     //PHP서버에 접속해서 JSON타입으로 데이터를 가져옴
-    class BackgroundTask extends AsyncTask<Void, Void, String> {
+    public class BackgroundTask extends AsyncTask<Void, Void, String> {
+
+
         String target;
+
 
         @Override
         protected void onPreExecute() {
@@ -126,6 +143,7 @@ public class NoticeActivity extends AppCompatActivity {
                 JSONArray jsonArray = jsonObject.getJSONArray("response");
                 int count = 0;
                 String notice_content, notice_name, notice_date;
+                int notice_seq;
                 /************************/
                 Log.e(this.getClass().getName(), "jsonarray.length값");
                 Log.e(this.getClass().getName(), String.valueOf(jsonArray.length()));
@@ -140,14 +158,16 @@ public class NoticeActivity extends AppCompatActivity {
                     notice_content = object.getString("notice_content");
                     notice_name = object.getString("notice_name");
                     notice_date = object.getString("notice_date");
+                    notice_seq = object.getInt("notice_seq");
                     /* 안되는 이유가 뭐니 진짜 */
 
                     Log.e(this.getClass().getName(), String.valueOf(count));
                     Log.e(this.getClass().getName(), String.valueOf(notice_content));
                     Log.e(this.getClass().getName(), String.valueOf(notice_name));
                     Log.e(this.getClass().getName(), String.valueOf(notice_date));
+                    Log.e(this.getClass().getName(), "seq테스트"+String.valueOf(notice_seq));
 
-                    NoticeRequest notice = new NoticeRequest(notice_content,notice_name , notice_date);
+                    NoticeRequest notice = new NoticeRequest(notice_content,notice_name , notice_date, notice_seq);
                     Log.e(this.getClass().getName(), String.valueOf(notice));
 
                     noticedList.add(notice);
@@ -155,7 +175,11 @@ public class NoticeActivity extends AppCompatActivity {
                     adapter = new NoticeListAdapter(getApplicationContext(), noticedList);
                     noticeListView.setAdapter(adapter);
 
+
+
+                    Log.e("리스트뷰클릭TEST44444444", String.valueOf(notice_seq));
                     count++;
+
 
                 }
 

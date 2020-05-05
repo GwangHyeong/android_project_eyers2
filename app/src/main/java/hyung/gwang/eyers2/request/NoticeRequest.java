@@ -4,10 +4,12 @@ public class NoticeRequest {
     String notice;
     String name;
     String date;
-    public NoticeRequest(String notice, String name, String date){
+    int seq;
+    public NoticeRequest(String notice, String name, String date, int seq){
         this.notice = notice;
         this.name = name;
         this.date = date;
+        this.seq = seq;
     }
     public String getNotice(){
         return notice;
@@ -26,5 +28,11 @@ public class NoticeRequest {
     }
     public void setDate(String date){
         this.date = date;
+    }
+    public int getSeq(){
+        return seq;
+    }
+    public void setSeq(int seq){
+        this.seq = seq;
     }
 }
