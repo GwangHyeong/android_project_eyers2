@@ -2,6 +2,7 @@ package hyung.gwang.eyers2.view;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Layout;
@@ -23,7 +24,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-
+import com.captaindroid.tvg.Tvg;
 import androidx.appcompat.app.AppCompatActivity;
 import hyung.gwang.eyers2.R;
 import hyung.gwang.eyers2.adapter.NoticeListAdapter;
@@ -47,7 +48,17 @@ public class NoticeActivity extends AppCompatActivity {
         noticeListView = (ListView)findViewById(R.id.noticeListView);
         noticedList = new ArrayList<NoticeRequest>();
 
+        TextView titleView = (TextView)findViewById(R.id.titleView);
+        //텍스트 그레디언트
 
+        Tvg.change(titleView, Color.parseColor("#800CDD"), Color.parseColor("#3BA3F2"));
+        Tvg.change((TextView) findViewById(R.id.titleView), new int[]{
+                Color.parseColor("#F97C3C"),
+                Color.parseColor("#FDB54E"),
+                Color.parseColor("#64B678"),
+                Color.parseColor("#478AEA"),
+                Color.parseColor("#8446CC"),
+        });
 
         adapter = new NoticeListAdapter(getApplicationContext(), noticedList);
         noticeListView.setAdapter(adapter);
