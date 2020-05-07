@@ -52,7 +52,7 @@ public class FreeBoardWriteActivity extends AppCompatActivity {
         Toast.makeText(this, "관리자 모드(공지사항작성)", Toast.LENGTH_SHORT).show();
 
 
-        //아이디 선언부 호출
+        //아이디 선언부 호출.
         findviewbid();
 
         nameText.setText(getuser);
