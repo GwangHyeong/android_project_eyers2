@@ -9,10 +9,13 @@ import android.text.Layout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.captaindroid.tvg.Tvg;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -24,7 +27,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import com.captaindroid.tvg.Tvg;
+
 import androidx.appcompat.app.AppCompatActivity;
 import hyung.gwang.eyers2.R;
 import hyung.gwang.eyers2.adapter.NoticeListAdapter;
@@ -42,6 +45,9 @@ public class NoticeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notic_board);
 

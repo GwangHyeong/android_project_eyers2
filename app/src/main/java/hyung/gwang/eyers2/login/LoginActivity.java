@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
+import com.captaindroid.tvg.Tvg;
 
 import org.json.JSONObject;
 
@@ -56,6 +57,16 @@ public class LoginActivity extends AppCompatActivity {
         TextView registerButton = (TextView) findViewById(R.id.registerButton);
         TextView idButton = (TextView) findViewById(R.id.idButton);
         TextView pwButton = (TextView) findViewById(R.id.pwButton);
+        TextView titleView = (TextView)findViewById(R.id.txtDYPatil);
+
+        Tvg.change(titleView, Color.parseColor("#FFFF00"), Color.parseColor("#3BA3F2"));
+        Tvg.change((TextView) findViewById(R.id.titleView), new int[]{
+                Color.parseColor("#FFFF00"),
+                Color.parseColor("#FDB54E"),
+                Color.parseColor("#64B678"),
+                Color.parseColor("#478AEA"),
+                Color.parseColor("#8446CC"),
+        });
 
         //회원가입 버튼이 눌리면 회원가입으로
         registerButton.setOnClickListener(new View.OnClickListener() {
