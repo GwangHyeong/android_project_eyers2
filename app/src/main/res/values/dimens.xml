@@ -20,7 +20,7 @@
 
     <dimen name="login_horizontal_margin">24dp</dimen>
 
-
+    <dimen name="fab_margin">16dp</dimen>
 
 
     <!--Register Activity-->

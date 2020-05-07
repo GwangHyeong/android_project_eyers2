@@ -19,7 +19,7 @@ import hyung.gwang.eyers2.R;
 import hyung.gwang.eyers2.view.PageTestFour;
 import hyung.gwang.eyers2.view.NoticeActivity;
 import hyung.gwang.eyers2.view.PageTestThree;
-import hyung.gwang.eyers2.view.PageTestTwo;
+import hyung.gwang.eyers2.view.FreeBoardActivity;
 
 
 public class SlidingTabsBasicFragment extends Fragment {
@@ -155,7 +155,7 @@ public class SlidingTabsBasicFragment extends Fragment {
                             Intent intent;
                             switch (v.getId()) {
                                 case R.id.testbutton:
-                                    intent = new Intent(v.getContext(), PageTestTwo.class);
+                                    intent = new Intent(v.getContext(),PageTestThree.class);
                                     startActivity(intent);
                                     Log.e("pagenumbertest1",pagenumber+"클릭");
                             }
@@ -171,7 +171,7 @@ public class SlidingTabsBasicFragment extends Fragment {
                             Intent intent;
                             switch (v.getId()) {
                                 case R.id.testbutton:
-                                    intent = new Intent(v.getContext(), PageTestThree.class);
+                                    intent = new Intent(v.getContext(), FreeBoardActivity.class);
                                     startActivity(intent);
                                     Log.e("pagenumbertest2",pagenumber+"클릭");
                             }

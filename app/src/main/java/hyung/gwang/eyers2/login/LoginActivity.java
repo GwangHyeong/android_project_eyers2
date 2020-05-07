@@ -103,7 +103,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 /**텍스트에 입력된 값 가져와서 String 에 넣기..**/
-                String user_id = idText.getText().toString();
+                final String user_id = idText.getText().toString();
                 String user_pw = passwordText.getText().toString();
                 Log.e(this.getClass().getName(), "로그인버튼 입력");
 
@@ -139,6 +139,8 @@ public class LoginActivity extends AppCompatActivity {
 
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                 LoginActivity.this.startActivity(intent);
+                                intent.putExtra("key_id",user_id);
+                                Log.e(this.getClass().getName(), "아이디 넘기는부분 login 할떄 -------"+user_id);
                                 finish();
                             } else {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);

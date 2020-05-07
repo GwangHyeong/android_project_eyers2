@@ -8,7 +8,8 @@
         android:layout_width="match_parent"
         android:layout_height="500dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="none"
+        android:scrollHorizontally="false"
         android:hint="관리자 공지사항 작성" />
 
     <Button
