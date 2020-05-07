@@ -76,7 +76,7 @@
             android:textColor="#ffffff"
             android:textColorHint="#ffffff"
             android:maxLength="50"
-            android:id="@+id/passwordText"
+            android:id="@+id/nameText"
             android:drawableStart="@drawable/ic_person_black_24dp"
             android:drawableLeft="@drawable/ic_person_black_24dp"
             android:layout_marginTop="10dp"
@@ -90,13 +90,13 @@
         <View
             android:id="@+id/view2"
             style="@style/login_view_line"
-            app:layout_constraintEnd_toEndOf="@+id/passwordText"
-            app:layout_constraintStart_toStartOf="@+id/passwordText"
-            app:layout_constraintTop_toBottomOf="@+id/passwordText" />
+            app:layout_constraintEnd_toEndOf="@+id/nameText"
+            app:layout_constraintStart_toStartOf="@+id/nameText"
+            app:layout_constraintTop_toBottomOf="@+id/nameText" />
 
 
         <EditText
-            android:id="@+id/oldexamText"
+            android:id="@+id/contentText"
             android:layout_width="350dp"
             android:layout_height="400dp"
             android:textColor="#ffffff"
@@ -114,7 +114,7 @@
             android:id="@+id/loginButton"
             android:text="작성"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/oldexamText" />
+            app:layout_constraintTop_toBottomOf="@+id/contentText" />
         <EditText
             android:layout_width="0dp"
             android:layout_height="0dp"

@@ -6,19 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
 
-
-    </com.google.android.material.appbar.AppBarLayout>
 
     <TextView
         android:id="@+id/titleView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="자유게시판"
+        android:text="자유 게시판"
         android:textSize="20dp"
 
         android:layout_gravity="center_horizontal"
@@ -27,11 +21,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/freeboardListView"
-        android:layout_margin="10dp"
+        android:layout_margin="40dp"
         android:dividerHeight="10dp"
         android:divider="#ffffff"
         >
     </ListView>
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"

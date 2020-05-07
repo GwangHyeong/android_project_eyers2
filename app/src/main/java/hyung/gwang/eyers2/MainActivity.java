@@ -3,6 +3,7 @@ package hyung.gwang.eyers2;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.WindowManager;
 import android.widget.Button;
 
@@ -26,11 +27,23 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+
         if (savedInstanceState == null) {
+
+            String getuser = getIntent().getStringExtra("key_id");
+            Log.e("유저아이디 데이터 넘어왔나 확인,",getuser);
+
+
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             SlidingTabsBasicFragment fragment = new SlidingTabsBasicFragment();
+            Bundle bundle = new Bundle();
+            bundle.putString("key_id",getuser);
+            fragment.setArguments(bundle);
             transaction.replace(R.id.sample_content_fragment, fragment);
             transaction.commit();
+
+
+
         }
 
         //상태바 색 변경..

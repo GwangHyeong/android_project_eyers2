@@ -138,8 +138,8 @@ public class LoginActivity extends AppCompatActivity {
                                 Log.e(this.getClass().getName(), "로그인성공");
 
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                LoginActivity.this.startActivity(intent);
                                 intent.putExtra("key_id",user_id);
+                                LoginActivity.this.startActivity(intent);
                                 Log.e(this.getClass().getName(), "아이디 넘기는부분 login 할떄 -------"+user_id);
                                 finish();
                             } else {

@@ -24,7 +24,7 @@ import hyung.gwang.eyers2.view.FreeBoardActivity;
 
 public class SlidingTabsBasicFragment extends Fragment {
 
-
+    private String getuser;
     static final String LOG_TAG = "SlidingTabsBasicFragment";
 
     /**
@@ -47,6 +47,10 @@ public class SlidingTabsBasicFragment extends Fragment {
                              Bundle savedInstanceState) {
 
 
+        if(getArguments() != null){
+            getuser = getArguments().getString("key_id");
+            Log.e("프래그먼트에 값전달됬나 확인",getuser);
+        }
 
 
         return inflater.inflate(R.layout.fragment_sample, container, false);
@@ -140,6 +144,8 @@ public class SlidingTabsBasicFragment extends Fragment {
                             switch (v.getId()) {
                                 case R.id.testbutton:
                                         intent = new Intent(v.getContext(), NoticeActivity.class);
+                                        intent.putExtra("key_id",getuser);
+                                        Log.e("프래그먼트에서 다른데 인텐트될때 값 확인",getuser);
                                         startActivity(intent);
                                         Log.e("pagenumbertest0",pagenumber+"클릭");
                             }
@@ -156,6 +162,8 @@ public class SlidingTabsBasicFragment extends Fragment {
                             switch (v.getId()) {
                                 case R.id.testbutton:
                                     intent = new Intent(v.getContext(),PageTestThree.class);
+                                    intent.putExtra("key_id",getuser);
+                                    Log.e("프래그먼트에서 다른데 인텐트될때 값 확인",getuser);
                                     startActivity(intent);
                                     Log.e("pagenumbertest1",pagenumber+"클릭");
                             }
@@ -172,6 +180,8 @@ public class SlidingTabsBasicFragment extends Fragment {
                             switch (v.getId()) {
                                 case R.id.testbutton:
                                     intent = new Intent(v.getContext(), FreeBoardActivity.class);
+                                    intent.putExtra("key_id",getuser);
+                                    Log.e("프래그먼트에서 다른데 인텐트될때 값 확인",getuser);
                                     startActivity(intent);
                                     Log.e("pagenumbertest2",pagenumber+"클릭");
                             }
@@ -188,6 +198,8 @@ public class SlidingTabsBasicFragment extends Fragment {
                             switch (v.getId()) {
                                 case R.id.testbutton:
                                     intent = new Intent(v.getContext(), PageTestFour.class);
+                                    intent.putExtra("key_id",getuser);
+                                    Log.e("프래그먼트에서 다른데 인텐트될때 값 확인",getuser);
                                     startActivity(intent);
                                     Log.e("pagenumbertest3",pagenumber+"클릭");
                             }

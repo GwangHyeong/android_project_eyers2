@@ -7,9 +7,8 @@ import android.view.WindowManager;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
-import hyung.gwang.eyers2.MainActivity;
 import hyung.gwang.eyers2.R;
-import hyung.gwang.eyers2.login.LoginActivity;
+import hyung.gwang.eyers2.write.AdminWriteActivity;
 
 public class AdminActivity  extends AppCompatActivity {
     /**상단 선언부**/
