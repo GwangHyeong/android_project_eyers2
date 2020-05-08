@@ -3,7 +3,7 @@
     android:background="#eeeeee"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
 
     <!-- 타이틀바 -->
     <LinearLayout
@@ -47,21 +47,60 @@
 
     <!-- 닫기 버튼 -->
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <Button
-            android:id="@+id/Button1"
-            android:text="확인"
-            android:textSize="15sp"
-            android:textColor="#8b00ff"
-            android:padding="16dp"
-            android:gravity="center"
-            android:background="@drawable/edittext_serverinput"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="53dp"
-            android:onClick="mOk"/>
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/edittext_serverinput"
+                android:text="확 인" />
+            <Button
+                android:id="@+id/button22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/edittext_serverinput"
+                android:onClick="clickHandler"
+                android:text="댓글목록" />
+
+            <Button
+                android:id="@+id/button33"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/edittext_serverinput"
+                android:text="댓글작성)" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <FrameLayout
+                    android:id="@+id/frameLayout"
+                    android:background="@color/black_dark"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </ScrollView>
+        </LinearLayout>
     </LinearLayout>
     <!--// 닫기 버튼 -->
+
 </LinearLayout>

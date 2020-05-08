@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -15,25 +16,54 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import hyung.gwang.eyers2.R;
+import hyung.gwang.eyers2.fragment.FreeBoardFragmentActivity;
 import hyung.gwang.eyers2.request.BoardDetailRequest;
 import hyung.gwang.eyers2.request.FreeBoardDetailRequest;
 import hyung.gwang.eyers2.view.FreeBoardActivity;
 
 public class FreeBoardDetailActivity extends AppCompatActivity {
+    /**
+     * 상단선언부
+     */
     TextView txtText;
     TextView titleText;
+    TextView testText;
+    Button button11;
+    Button button22;
+    Button button33;
+    //프래그먼트들
+    private FragmentManager fragmentManager;
+    private FragmentTransaction transaction;
+    private FreeBoardFragmentActivity FreeBoardFragmentActivity;
+
+    /**
+     * 상단선언부 종료
+     */
     @Override
     protected void onCreate(Bundle bundle) {
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(bundle);
 
         setContentView(R.layout.activity_freeboard_detail);
-        txtText = (TextView)findViewById(R.id.txtText);
-        titleText = (TextView)findViewById(R.id.titleText) ;
-        Button okBtn = (Button)findViewById(R.id.Button1);
-        String key_id =(getIntent().getStringExtra("key_id"));
+
+        String key_id = (getIntent().getStringExtra("key_id"));
         Log.e("FreeBoardDetail--", String.valueOf(key_id));
 
+        //프래그먼트
+        fragmentManager = getSupportFragmentManager();
+        FreeBoardFragmentActivity = new FreeBoardFragmentActivity();
+        transaction = fragmentManager.beginTransaction();
+        //transaction.hide(FreeBoardFragmentActivity);
+        transaction.replace(R.id.frameLayout, FreeBoardFragmentActivity).commitAllowingStateLoss();
+        //아이디선언부 호출
+        findViewByIdset();
+        //프래그먼트 값 전달.
+        Bundle bundle1 = new Bundle();
+        bundle1.putString("key_id", key_id);
+        FreeBoardFragmentActivity.setArguments(bundle);
 
         Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
@@ -42,31 +72,19 @@ public class FreeBoardDetailActivity extends AppCompatActivity {
                 Log.e(this.getClass().getName(), "리스폰 값이 이거래");
 
                 try {
-//                    JSONObject jsonResponse = new JSONObject(response); //json객체 생성..
-//                    JSONObject jsonResponse2 = new JSONObject(response); //json객체 생성.
-
                     JSONObject jsonObject = new JSONObject(response);
                     JSONArray jsonArray = jsonObject.getJSONArray("response");
-                    JSONObject object = jsonArray.getJSONObject(0);
-                    String freeboard_content, freeboard_name, freeboard_date , freeboard_title;
+                    JSONObject object = jsonArray.getJSONObject(0); //어차피 한줄이니까 0값주자~
+                    String freeboard_content, freeboard_name, freeboard_date, freeboard_title;
                     int freeboard_seq;
                     int count = jsonArray.length();
                     freeboard_content = object.getString("freeboard_content");
                     freeboard_title = object.getString("freeboard_title");
-//                    String success = jsonResponse.getString("freeboard_content"); //키값 success인거 가져오기
-//                    String success2 = jsonResponse2.getString("freeboard_title"); //키값 success2인거 가져오기
 
                     Log.e(this.getClass().getName(), String.valueOf(response));
                     txtText.setText(freeboard_content);
                     titleText.setText(freeboard_title);
 
-//                    //가져온 값이 false가 아닐경우.
-//                    if (!success.equals("false")) {
-//                        Log.e(this.getClass().getName(), "자유게시판찾기성공");
-//
-//                    } else {
-//                        Log.e(this.getClass().getName(), "자유게시판 실패");
-//                    }
 
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -82,12 +100,42 @@ public class FreeBoardDetailActivity extends AppCompatActivity {
 
 
     }
-    public void  mOk(View v){
+
+    private void findViewByIdset() {
+        txtText = (TextView) findViewById(R.id.txtText);
+        titleText = (TextView) findViewById(R.id.titleText);
+        //testText = (TextView) findViewById(R.id.testtext);
+        button11 = (Button) findViewById(R.id.button11);
+        button22 = (Button) findViewById(R.id.button22);
+        button33 = (Button) findViewById(R.id.button33);
+
+    }
+
+    //프래그먼트 클릭
+    public void clickHandler(View view) {
+        transaction = fragmentManager.beginTransaction();
+        transaction.show(FreeBoardFragmentActivity);
+        Log.e("buttontest", "프리보드프래그먼트");
+        switch (view.getId()) {
+            case R.id.button33:
+              //  testText.setText("141414");
+              //  testText.setVisibility(View.VISIBLE);
+
+                transaction.replace(R.id.frameLayout, FreeBoardFragmentActivity).commitAllowingStateLoss();
+                break;
+//            case R.id.btn_fragmentB:
+//                transaction.replace(R.id.frameLayout, fragmentB).commitAllowingStateLoss();
+//                break;
+        }
+    }
+
+    public void mOk(View v) {
         finish();
     }
+
     @Override
-    public boolean onTouchEvent(MotionEvent event){
-        if(event.getAction()==MotionEvent.ACTION_OUTSIDE){
+    public boolean onTouchEvent(MotionEvent event) {
+        if (event.getAction() == MotionEvent.ACTION_OUTSIDE) {
             return false;
         }
         return true;
