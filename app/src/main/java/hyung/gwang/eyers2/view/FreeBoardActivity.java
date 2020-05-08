@@ -7,8 +7,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.captaindroid.tvg.Tvg;
@@ -29,6 +31,8 @@ import java.util.List;
 import androidx.appcompat.app.AppCompatActivity;
 import hyung.gwang.eyers2.R;
 import hyung.gwang.eyers2.adapter.FreeBoardListAdapter;
+import hyung.gwang.eyers2.detail.FreeBoardDetailActivity;
+import hyung.gwang.eyers2.detail.NoticeDetailActivity;
 import hyung.gwang.eyers2.request.FreeBoardRequest;
 import hyung.gwang.eyers2.write.FreeBoardWriteActivity;
 
@@ -51,6 +55,7 @@ public class FreeBoardActivity extends AppCompatActivity {
 
         freeboardListView = (ListView)findViewById(R.id.freeboardListView);
         freeboardList = new ArrayList<FreeBoardRequest>();
+        FloatingActionButton fab = findViewById(R.id.fab);
 
         TextView titleView = (TextView)findViewById(R.id.titleView);
         //텍스트 그레디언트
@@ -64,9 +69,35 @@ public class FreeBoardActivity extends AppCompatActivity {
                 Color.parseColor("#8446CC"),
         });
 
+        //클릭
+        freeboardListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
 
-        FloatingActionButton fab = findViewById(R.id.fab);
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.e("test", "아이템클릭, postion : " + position +
+                        ", id : " + id);
+                Toast.makeText(getApplicationContext(), " 상세 보기", Toast.LENGTH_SHORT).show();
+                Log.e("ListenerTest","L_TEST"+position);
+
+
+                TextView seqText = (TextView)view.findViewById(R.id.seqText);
+                String result_seq = (seqText.getText().toString());
+                Log.e("result_seq", String.valueOf(result_seq));
+
+                Intent intent = new Intent(FreeBoardActivity.this, FreeBoardDetailActivity.class);
+                //Error 드디어찾은곳. Integer을 형변환 하지않고 String 에 뿌려서 그런듯;?
+                intent.putExtra("key_id",String.valueOf(result_seq)); //값 전달하기.
+
+                //값잘넘겻는지 로그캣 확인
+                int listentest = position;
+                Log.e("ListenerTest", String.valueOf(listentest));
+                startActivity(intent);
+            }
+        });
+
+
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -111,12 +142,18 @@ public class FreeBoardActivity extends AppCompatActivity {
                 URL url = new URL(target);
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
                 InputStream inputStream = httpURLConnection.getInputStream();
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-                String temp;//결과 값을 여기에 저장함
-                StringBuilder stringBuilder = new StringBuilder();
+                Log.e("데이터가져오는거 테스트", String.valueOf(inputStream)+"인풋스트림");
 
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+                Log.e("데이터가져오는거 테스트", String.valueOf(bufferedReader)+"버퍼리더");
+
+                String temp;//결과 값을 여기에 저장함
+
+                StringBuilder stringBuilder = new StringBuilder();
+                Log.e("데이터가져오는거 테스트", String.valueOf(stringBuilder)+"스트링빌더");
                 //버퍼생성후 한줄씩 가져옴
                 while ((temp = bufferedReader.readLine()) != null) {
+                    Log.e("데이터가져오는거 테스트", String.valueOf(temp)+"스트링");
                     stringBuilder.append(temp + "\n");
                 }
 
@@ -142,6 +179,7 @@ public class FreeBoardActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
+            Log.e("데이터가져오는거 테스트", String.valueOf(result)+"스트링");
             try {
 
                 JSONObject jsonObject = new JSONObject(result);

@@ -26,10 +26,13 @@
         <activity android:name=".view.PageTestThree"/>
         <activity android:name=".view.PageTestFour"/>
         <activity android:name=".view.AdminActivity"/>
-        <activity android:name=".write.AdminWriteActivity"/>
         <activity android:name=".view.TestActivity" />
+
+        <activity android:name=".write.AdminWriteActivity"/>
         <activity android:name=".write.FreeBoardWriteActivity"/>
+
         <activity android:name=".detail.NoticeDetailActivity"/>
+        <activity android:name=".detail.FreeBoardDetailActivity"/>
 
         <uses-library android:name="org.apache.http.legacy" android:required="false" />
 
