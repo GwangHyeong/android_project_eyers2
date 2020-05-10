@@ -6,11 +6,11 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="35dp"
-        android:text="notice"
+        android:text="comment"
         android:layout_gravity="center"
         android:padding="10dp"
         android:textColor="#ffffff"
-        android:id="@+id/titleText"
+        android:id="@+id/commentText"
         android:drawableStart="@drawable/ic_textsms_black_24dp"
         android:drawableLeft="@drawable/ic_textsms_black_24dp"
         android:background="@color/colorPrimary"
@@ -40,6 +40,8 @@
             android:textColor="#ffffff"
             android:textColorHint="#ffffff"
             android:id="@+id/dateText"
+            android:visibility="invisible"
+
             />
         <TextView
             android:layout_width="wrap_content"

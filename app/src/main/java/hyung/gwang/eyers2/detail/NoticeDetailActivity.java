@@ -39,6 +39,7 @@ public class NoticeDetailActivity extends AppCompatActivity {
             public void onResponse(String response) {
                 Log.e(this.getClass().getName(), response);
                 Log.e(this.getClass().getName(), "리스폰 값이 이거래");
+
                 try {
                     JSONObject jsonResponse = new JSONObject(response); //json객체 생성.
                     String success = jsonResponse.getString("success"); //키값 success인거 가져오기

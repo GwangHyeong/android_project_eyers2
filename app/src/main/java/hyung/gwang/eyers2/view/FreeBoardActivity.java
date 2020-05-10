@@ -88,6 +88,10 @@ public class FreeBoardActivity extends AppCompatActivity {
                 Intent intent = new Intent(FreeBoardActivity.this, FreeBoardDetailActivity.class);
                 //Error 드디어찾은곳. Integer을 형변환 하지않고 String 에 뿌려서 그런듯;?
                 intent.putExtra("key_id",String.valueOf(result_seq)); //값 전달하기.
+                intent.putExtra("getuser",String.valueOf(getuser)); //값 전달하기.
+
+                Log.e("게시판리스트 눌렀을때 seq값", String.valueOf(result_seq));
+                Log.e("게시판리스트 눌렀을때 id값", String.valueOf(getuser));
 
                 //값잘넘겻는지 로그캣 확인
                 int listentest = position;

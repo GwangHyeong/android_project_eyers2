@@ -51,6 +51,8 @@ public class FreeBoardDetailActivity extends AppCompatActivity {
 
         String key_id = (getIntent().getStringExtra("key_id"));
         Log.e("FreeBoardDetail--", String.valueOf(key_id));
+        String getuser = (getIntent().getStringExtra("getuser"));
+        Log.e("FreeBoardDetail--", String.valueOf(getuser));
 
         //프래그먼트
         fragmentManager = getSupportFragmentManager();
@@ -63,7 +65,10 @@ public class FreeBoardDetailActivity extends AppCompatActivity {
         //프래그먼트 값 전달.
         Bundle bundle1 = new Bundle();
         bundle1.putString("key_id", key_id);
-        FreeBoardFragmentActivity.setArguments(bundle);
+        bundle1.putString("getuser", getuser);
+        FreeBoardFragmentActivity.setArguments(bundle1);
+        //Bundle bundle2 = new Bundle();
+        //FreeBoardFragmentActivity.setArguments(bundle2);
 
         Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
@@ -117,13 +122,15 @@ public class FreeBoardDetailActivity extends AppCompatActivity {
         transaction.show(FreeBoardFragmentActivity);
         Log.e("buttontest", "프리보드프래그먼트");
         switch (view.getId()) {
-            case R.id.button33:
+            case R.id.button22:
               //  testText.setText("141414");
               //  testText.setVisibility(View.VISIBLE);
 
+                //프래그먼트 값 전달.
+
                 transaction.replace(R.id.frameLayout, FreeBoardFragmentActivity).commitAllowingStateLoss();
                 break;
-//            case R.id.btn_fragmentB:
+            case R.id.button33:
 //                transaction.replace(R.id.frameLayout, fragmentB).commitAllowingStateLoss();
 //                break;
         }
