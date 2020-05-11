@@ -111,7 +111,7 @@ public class FreeBoardDetailActivity extends AppCompatActivity {
         titleText = (TextView) findViewById(R.id.titleText);
         //testText = (TextView) findViewById(R.id.testtext);
         button11 = (Button) findViewById(R.id.button11);
-        button22 = (Button) findViewById(R.id.button22);
+        //
         button33 = (Button) findViewById(R.id.button33);
 
     }
@@ -122,14 +122,14 @@ public class FreeBoardDetailActivity extends AppCompatActivity {
         transaction.show(FreeBoardFragmentActivity);
         Log.e("buttontest", "프리보드프래그먼트");
         switch (view.getId()) {
-            case R.id.button22:
+            //case R.id.button22:
               //  testText.setText("141414");
               //  testText.setVisibility(View.VISIBLE);
 
                 //프래그먼트 값 전달.
 
-                transaction.replace(R.id.frameLayout, FreeBoardFragmentActivity).commitAllowingStateLoss();
-                break;
+               // transaction.replace(R.id.frameLayout, FreeBoardFragmentActivity).commitAllowingStateLoss();
+                //break;
             case R.id.button33:
 //                transaction.replace(R.id.frameLayout, fragmentB).commitAllowingStateLoss();
 //                break;

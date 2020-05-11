@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
@@ -14,20 +15,31 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import hyung.gwang.eyers2.R;
+import hyung.gwang.eyers2.adapter.FreeBoardCommentListAdapter;
+import hyung.gwang.eyers2.adapter.FreeBoardListAdapter;
+import hyung.gwang.eyers2.adapter.NoticeListAdapter;
 import hyung.gwang.eyers2.detail.FreeBoardDetailActivity;
+import hyung.gwang.eyers2.request.FreeBoardCommentListRequest;
 import hyung.gwang.eyers2.request.FreeBoardCommentRequest;
 import hyung.gwang.eyers2.request.FreeBoardDetailRequest;
+import hyung.gwang.eyers2.request.FreeBoardRequest;
+import hyung.gwang.eyers2.request.NoticeRequest;
 
 public class FreeBoardFragmentActivity extends Fragment {
 
     /**
      * 상단선언부
      */
-
+    private ListView fbcommentListView;
+    private FreeBoardCommentListAdapter adapter;
+    private List<FreeBoardCommentListRequest> freeboardcommentList;
     TextView commentText;
     TextView nameText;
 
@@ -39,17 +51,21 @@ public class FreeBoardFragmentActivity extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
 
-        View v = inflater.inflate(R.layout.activity_fragment_freeboard_comment, container, false);
+        final View v = inflater.inflate(R.layout.activity_fragment_freeboard_comment, container, false);
 
         commentText = (TextView) v.findViewById(R.id.commentText);
         nameText = (TextView) v.findViewById(R.id.nameText);
-
+        fbcommentListView = (ListView) v.findViewById(R.id.commentListView);
+        freeboardcommentList = new ArrayList<FreeBoardCommentListRequest>();
         //값 받기
         String key_id = getArguments().getString("key_id");
         Log.e("key받기 테스트 게시글번호--", String.valueOf(key_id));
         String getuser = getArguments().getString("getuser");
         Log.e("key받기 테스트 글쓴이--", String.valueOf(getuser));
 
+
+        adapter = new FreeBoardCommentListAdapter(v.getContext(), freeboardcommentList);
+        fbcommentListView.setAdapter(adapter);
 
         Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
@@ -61,19 +77,27 @@ public class FreeBoardFragmentActivity extends Fragment {
                     JSONObject jsonObject = new JSONObject(response);
                     JSONArray jsonArray = jsonObject.getJSONArray("response");
 
-                    String fbcomment_content, fbcomment_name, freeboard_date, freeboard_title;
-                    int freeboard_seq;
+                    String fbcomment_content, fbcomment_name, fbcomment_freeboard;
+                    int fbcomment_seq;
                     int count = 0;
                     while (count < jsonArray.length()) {
-                    JSONObject object = jsonArray.getJSONObject(count); //length값주기
-                    fbcomment_content = object.getString("fbcomment_content");
-                    fbcomment_name = object.getString("fbcomment_name");
+                        JSONObject object = jsonArray.getJSONObject(count); //length값주기
+                        fbcomment_content = object.getString("fbcomment_content");
+                        fbcomment_name = object.getString("fbcomment_name");
+                        fbcomment_freeboard = object.getString("fbcomment_freeboard");
+                        fbcomment_seq = object.getInt("freeboard_seq");
 
-                    Log.e(this.getClass().getName(), String.valueOf(response));
-                    commentText.setText(fbcomment_content);
-                    nameText.setText(fbcomment_name);
-                    count++;
+                        Log.e(this.getClass().getName(), String.valueOf(response));
 
+
+                        FreeBoardCommentListRequest freeboardcomment = new FreeBoardCommentListRequest(fbcomment_content, fbcomment_name, fbcomment_freeboard, fbcomment_seq);
+                        Log.e(this.getClass().getName(), String.valueOf(freeboardcomment));
+
+                        freeboardcommentList.add(freeboardcomment);
+                        //????????? 이거 넣었더니 됨 어뎁터를 위에 선언했었는데 흠...//
+                        adapter = new FreeBoardCommentListAdapter(v.getContext(), freeboardcommentList);
+                        fbcommentListView.setAdapter(adapter);
+                        count++;
 
                     }
 
