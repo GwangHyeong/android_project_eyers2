@@ -110,8 +110,6 @@ public class FreeBoardActivity extends AppCompatActivity {
                 intent = new Intent(FreeBoardActivity.this, FreeBoardWriteActivity.class);
                 intent.putExtra("key_id",getuser);
                 startActivity(intent);
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
             }
         });
 

@@ -1,5 +1,6 @@
 package hyung.gwang.eyers2.detail;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -23,6 +25,8 @@ import hyung.gwang.eyers2.fragment.FreeBoardFragmentActivity;
 import hyung.gwang.eyers2.request.BoardDetailRequest;
 import hyung.gwang.eyers2.request.FreeBoardDetailRequest;
 import hyung.gwang.eyers2.view.FreeBoardActivity;
+import hyung.gwang.eyers2.write.FreeBoardCommentWriteActivity;
+import hyung.gwang.eyers2.write.FreeBoardWriteActivity;
 
 public class FreeBoardDetailActivity extends AppCompatActivity {
     /**
@@ -49,9 +53,10 @@ public class FreeBoardDetailActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_freeboard_detail);
 
-        String key_id = (getIntent().getStringExtra("key_id"));
+        FloatingActionButton fab = findViewById(R.id.fab);
+        final String key_id = (getIntent().getStringExtra("key_id"));
         Log.e("FreeBoardDetail--", String.valueOf(key_id));
-        String getuser = (getIntent().getStringExtra("getuser"));
+        final String getuser = (getIntent().getStringExtra("getuser"));
         Log.e("FreeBoardDetail--", String.valueOf(getuser));
 
         //프래그먼트
@@ -69,6 +74,22 @@ public class FreeBoardDetailActivity extends AppCompatActivity {
         FreeBoardFragmentActivity.setArguments(bundle1);
         //Bundle bundle2 = new Bundle();
         //FreeBoardFragmentActivity.setArguments(bundle2);
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent;
+                //팝업 띄우기
+                intent = new Intent(FreeBoardDetailActivity.this, FreeBoardCommentWriteActivity.class);
+
+                intent.putExtra("key_id",key_id);
+                intent.putExtra("getuser",getuser);
+                Log.e("댓글작성할때 값 전달 --",key_id + "키아이디");
+                Log.e("댓글작성할때 값 전달 --",getuser+"겟유저");
+                startActivity(intent);
+            }
+        });
 
         Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
