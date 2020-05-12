@@ -49,9 +49,9 @@
 
         <TextView
             android:id="@+id/txtDYPatil"
-            style="@style/college_name"
+            style="@style/college_name2"
             android:layout_marginTop="16dp"
-            android:text="E Y E R S"
+            android:text="세상을 보는 눈"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/college_logo" />
@@ -59,7 +59,7 @@
         <TextView
             android:id="@+id/txtEnggTech"
             style="@style/college_name"
-            android:text="문구 1"
+            android:text="E Y E R S"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtDYPatil" />

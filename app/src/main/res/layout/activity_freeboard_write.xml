@@ -103,6 +103,7 @@
             android:textColorHint="#ffffff"
             android:inputType="none"
             android:scrollHorizontally="false"
+            android:textCursorDrawable="@color/design_default_color_secondary"
             android:hint="내용 작성"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view2"/>

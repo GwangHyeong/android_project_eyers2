@@ -30,7 +30,7 @@
 
         <activity android:name=".write.AdminWriteActivity"/>
         <activity android:name=".write.FreeBoardWriteActivity"/>
-        <activity android:name=".write.FreeBoardCommentWriteActivity"/>
+        <activity android:name=".write.FreeBoardCommentWriteActivity" />
 
         <activity android:name=".detail.NoticeDetailActivity"/>
         <activity android:name=".detail.FreeBoardDetailActivity"/>

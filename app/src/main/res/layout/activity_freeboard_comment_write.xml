@@ -3,6 +3,7 @@
     android:background="#eeeeee"
     android:orientation="vertical"
     android:layout_width="300dp"
+    android:layout_gravity="center_horizontal"
     android:layout_height="wrap_content">
 
     <!-- 타이틀바 -->
@@ -77,6 +78,7 @@
             android:background="@drawable/edittext_serverinput"
             android:layout_width="match_parent"
             android:layout_height="53dp"
+            android:onClick="mOk"
             />
     </LinearLayout>
     <!--// 닫기 버튼 -->

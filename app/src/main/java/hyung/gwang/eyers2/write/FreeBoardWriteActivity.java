@@ -49,7 +49,7 @@ public class FreeBoardWriteActivity extends AppCompatActivity {
         final String getuser = getIntent().getStringExtra("key_id");
         Log.e("유저아이디 데이터 넘어왔나 확인2,",getuser);
 
-        Toast.makeText(this, "관리자 모드(공지사항작성)", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "게시판작성", Toast.LENGTH_SHORT).show();
 
 
         //아이디 선언부 호출.
@@ -72,7 +72,7 @@ public class FreeBoardWriteActivity extends AppCompatActivity {
 
                 String freeboard_title = titleText.getText().toString();
                 String freeboard_name = nameText.getText().toString();
-                String freeboard_content = titleText.getText().toString();
+                String freeboard_content = contentText.getText().toString();
                 String freeboard_date = dateText.getText().toString();
                 String freeboard_seq = seqText.getText().toString();
 
@@ -125,6 +125,8 @@ public class FreeBoardWriteActivity extends AppCompatActivity {
         dateText = findViewById(R.id.dateText);
         seqText = findViewById(R.id.seqText);
         button = findViewById(R.id.loginButton);
+
+        contentText.requestFocus(); //포커스맞춰주기 커서가 안보일경우
 
     }
 }

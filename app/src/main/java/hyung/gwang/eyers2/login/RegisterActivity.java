@@ -111,7 +111,7 @@ public class RegisterActivity extends AppCompatActivity {
 
 
                         try {
-                            Toast.makeText(RegisterActivity.this, response, Toast.LENGTH_LONG).show();
+                            //Toast.makeText(RegisterActivity.this, response, Toast.LENGTH_LONG).show();
                             JSONObject jsonResponse = new JSONObject(response); //서버로 부터 받는 데이터는 JSON타입의 객체이다.
 
                             Log.e(this.getClass().getName(), String.valueOf(jsonResponse));

@@ -66,14 +66,7 @@
                 android:onClick="mOk"
                 android:text="확 인" />
 
-            <Button
-                android:id="@+id/button33"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:onClick="clickHandler"
-                android:background="@drawable/edittext_serverinput"
-                android:text="댓글작성" />
+
         </LinearLayout>
         <TextView
             android:id="@+id/titleView"
