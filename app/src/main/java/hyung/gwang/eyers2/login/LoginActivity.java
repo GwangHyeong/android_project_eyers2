@@ -7,6 +7,7 @@ import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -59,6 +60,8 @@ public class LoginActivity extends AppCompatActivity {
         TextView pwButton = (TextView) findViewById(R.id.pwButton);
         TextView titleView = (TextView)findViewById(R.id.txtDYPatil);
 
+
+
         Tvg.change(titleView, Color.parseColor("#FFFF00"), Color.parseColor("#3BA3F2"));
         Tvg.change((TextView) findViewById(R.id.titleView), new int[]{
                 Color.parseColor("#FFFF00"),
@@ -97,6 +100,19 @@ public class LoginActivity extends AppCompatActivity {
         final EditText idText = (EditText) findViewById(R.id.idText);
         final EditText passwordText = (EditText) findViewById(R.id.passwordText);
         final Button loginButton = (Button) findViewById(R.id.loginButton);
+
+        //아이디 칸 엔터키 방지.
+        idText.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if(keyCode == event.KEYCODE_ENTER)
+                {
+                    return true;
+                }
+                return false;
+            }
+
+        });
 
         /***로그인 버튼을 눌렀을 경우.***/
         loginButton.setOnClickListener(new View.OnClickListener() {
