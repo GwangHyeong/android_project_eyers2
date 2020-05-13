@@ -23,10 +23,11 @@
 
         <activity android:name=".view.NoticeActivity"/>
         <activity android:name=".view.FreeBoardActivity"/>
-        <activity android:name=".view.PageTestThree"/>
+        <activity android:name=".view.MemberActivity"/>
         <activity android:name=".view.PageTestFour"/>
         <activity android:name=".view.AdminActivity"/>
         <activity android:name=".view.TestActivity" />
+
 
         <activity android:name=".write.AdminWriteActivity"/>
         <activity android:name=".write.FreeBoardWriteActivity"/>

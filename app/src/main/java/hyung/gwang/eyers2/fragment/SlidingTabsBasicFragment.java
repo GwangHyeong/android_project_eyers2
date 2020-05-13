@@ -18,7 +18,7 @@ import androidx.viewpager.widget.ViewPager;
 import hyung.gwang.eyers2.R;
 import hyung.gwang.eyers2.view.PageTestFour;
 import hyung.gwang.eyers2.view.NoticeActivity;
-import hyung.gwang.eyers2.view.PageTestThree;
+import hyung.gwang.eyers2.view.MemberActivity;
 import hyung.gwang.eyers2.view.FreeBoardActivity;
 
 
@@ -107,7 +107,7 @@ public class SlidingTabsBasicFragment extends Fragment {
                 return "공지 사항";
             }
             else if (position == 1){
-                return "족보 게시판";
+                return "회원 목록";
             }
             else if (position == 2){
                 return "자유 게시판";
@@ -154,14 +154,14 @@ public class SlidingTabsBasicFragment extends Fragment {
                     break;
                 case 1:
                     Button button2 = (Button) view.findViewById(R.id.testbutton);
-                    button2.setBackgroundResource(R.drawable.genealogy);
+                    button2.setBackgroundResource(R.drawable.member);
                     button2.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             Intent intent;
                             switch (v.getId()) {
                                 case R.id.testbutton:
-                                    intent = new Intent(v.getContext(),PageTestThree.class);
+                                    intent = new Intent(v.getContext(), MemberActivity.class);
                                     intent.putExtra("key_id",getuser);
                                     Log.e("프래그먼트에서 다른데 인텐트될때 값 확인",getuser);
                                     startActivity(intent);
