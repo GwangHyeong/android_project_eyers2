@@ -1,5 +1,6 @@
 package hyung.gwang.eyers2.write;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -21,7 +22,9 @@ import java.util.Date;
 
 import androidx.appcompat.app.AppCompatActivity;
 import hyung.gwang.eyers2.R;
+import hyung.gwang.eyers2.detail.FreeBoardDetailActivity;
 import hyung.gwang.eyers2.request.FreeBoardCommentWriteRequest;
+import hyung.gwang.eyers2.write.AdminWriteActivity;
 import hyung.gwang.eyers2.request.FreeBoardWriteRequest;
 
 public class FreeBoardCommentWriteActivity extends AppCompatActivity {
@@ -31,6 +34,7 @@ public class FreeBoardCommentWriteActivity extends AppCompatActivity {
      **/
     String TAG = "FreeBoardCommentWriteActivity";
 
+    //AdminWriteActivity adminWriteActivity;
     TextView titleText;
     TextView nameText;
     EditText contentText;
@@ -59,7 +63,7 @@ public class FreeBoardCommentWriteActivity extends AppCompatActivity {
         Log.e("유저아이디 데이터 넘어왔나 확인2,",key_id);
         Log.e("유저아이디 데이터 넘어왔나 확인2,",getuser);
 
-        Toast.makeText(this, "관리자 모드(공지사항작성)", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "댓글작성", Toast.LENGTH_SHORT).show();
 
 
         //아이디 선언부 호출.
@@ -68,6 +72,9 @@ public class FreeBoardCommentWriteActivity extends AppCompatActivity {
         freeboardText.setText(key_id);
         nameText.setText(getuser);
         //freeboardText.setText(key_)
+
+
+       //adminWriteActivity.realtimecomment();
     }
     public void  mOk(View v){
 
@@ -105,6 +112,7 @@ public class FreeBoardCommentWriteActivity extends AppCompatActivity {
                     Log.e(this.getClass().getName(), "예외발생");
 
                 }
+
             }
         };//Response.Listener 완료
 
@@ -113,8 +121,22 @@ public class FreeBoardCommentWriteActivity extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(FreeBoardCommentWriteActivity.this);
         queue.add(freeboardCommentWriteRequest);
 
+
+        Intent intent;
+        intent = new Intent(FreeBoardCommentWriteActivity.this, FreeBoardDetailActivity.class);
+
+        intent.putExtra("key_id",freeboardcomment_freeboard);
+        intent.putExtra("getuser",freeboardcomment_name);
+        Log.e("댓글작성할때 값 전달 --",freeboardcomment_freeboard + "키아이디");
+        Log.e("댓글작성할때 값 전달 --",freeboardcomment_name+"겟유저");
+        startActivity(intent);
+
+
         finish();
+
+
     }
+
     //아이디 선언
     private void findviewbyidset() {
 
@@ -122,9 +144,8 @@ public class FreeBoardCommentWriteActivity extends AppCompatActivity {
         contentText = findViewById(R.id.contentText);
         seqText = findViewById(R.id.seqText);
         freeboardText = findViewById(R.id.freeboardText);
-
-
         button = findViewById(R.id.Button1);
 
     }
+
 }

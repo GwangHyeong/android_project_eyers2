@@ -88,6 +88,7 @@ public class FreeBoardDetailActivity extends AppCompatActivity {
                 Log.e("댓글작성할때 값 전달 --",key_id + "키아이디");
                 Log.e("댓글작성할때 값 전달 --",getuser+"겟유저");
                 startActivity(intent);
+                finish();
             }
         });
 

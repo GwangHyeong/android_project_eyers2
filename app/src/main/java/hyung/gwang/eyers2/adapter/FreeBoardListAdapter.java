@@ -48,7 +48,6 @@ public class FreeBoardListAdapter extends BaseAdapter {
         dateText.setText(freeboardList.get(position).getDate());
         seqText.setText(String.valueOf(freeboardList.get(position).getSeq()));
         titleText.setText(freeboardList.get(position).getTitle());
-
         v.setTag(freeboardList.get(position).getContent());
         return v;
     }

@@ -1,5 +1,6 @@
 package hyung.gwang.eyers2.view;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
@@ -38,6 +39,9 @@ import hyung.gwang.eyers2.write.FreeBoardWriteActivity;
 
 public class FreeBoardActivity extends AppCompatActivity {
 
+    public static Context context;
+
+
     private ListView freeboardListView;
     private FreeBoardListAdapter adapter;
     private List<FreeBoardRequest> freeboardList;
@@ -46,7 +50,7 @@ public class FreeBoardActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
+        context = this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_freeboard_main);
 
@@ -110,6 +114,8 @@ public class FreeBoardActivity extends AppCompatActivity {
                 intent = new Intent(FreeBoardActivity.this, FreeBoardWriteActivity.class);
                 intent.putExtra("key_id",getuser);
                 startActivity(intent);
+
+                finish();
             }
         });
 
@@ -119,9 +125,9 @@ public class FreeBoardActivity extends AppCompatActivity {
         new BackgroundTask().execute();
     }
 
-
-
     //PHP서버에 접속해서 JSON타입으로 데이터를 가져옴
+    //새로운 TASK정의 (비동기식)(AsyncTask)
+    //<>안에 들은 자료형은 순서대로 doinBackgourond,onProgresUpdate,onPostExecute 매개변수
     public class BackgroundTask extends AsyncTask<Void, Void, String> {
 
 
@@ -236,5 +242,14 @@ public class FreeBoardActivity extends AppCompatActivity {
 
         }
     }
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+
+    }
+
 }
 
