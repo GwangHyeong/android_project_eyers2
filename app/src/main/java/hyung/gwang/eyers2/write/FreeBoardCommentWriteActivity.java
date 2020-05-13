@@ -121,7 +121,8 @@ public class FreeBoardCommentWriteActivity extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(FreeBoardCommentWriteActivity.this);
         queue.add(freeboardCommentWriteRequest);
 
-
+        //기존액티비티를 종료하고 댓글작성시 다시 액티비티를 여는 방법
+        //이방법이 맞는지는 모르겠다.
         Intent intent;
         intent = new Intent(FreeBoardCommentWriteActivity.this, FreeBoardDetailActivity.class);
 
