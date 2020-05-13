@@ -114,7 +114,7 @@ public class FreeBoardCommentWriteActivity extends AppCompatActivity {
                 }
 
             }
-        };//Response.Listener 완료
+        };//Response.Listener 완료.
 
         //Volley 라이브러리를 이용해서 실제 서버와 통신을 구현하는 부분
         FreeBoardCommentWriteRequest freeboardCommentWriteRequest = new FreeBoardCommentWriteRequest(freeboardcomment_content, freeboardcomment_name, freeboardcomment_freeboard, freeboardcomment_seq,responseListener);
