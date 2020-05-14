@@ -32,13 +32,16 @@ public class MemberActivity extends AppCompatActivity {
         //    2. Adapter (데이터와 view의 연결 관계를 정의)
         //    3. AdapterView (ListView)
         EyersMemberActivity m1 = new EyersMemberActivity();
-        m1.img = R.drawable.logo;
-        m1.name = "이름 : 이광형 학번 : 201562042";
+        m1.img = R.drawable.lgh;
+        m1.name = "이름 : 이광형  학번 : 201562042";
         m1.skill = "전공 : 스마트미디어 기술분야 : Android" ;
-        m1.homepage="홈페이지 : https://github.com/GwangHyeong";
+        m1.homepage="https://github.com/GwangHyeong";
         m1.email="이메일 : rhkdgud61@naver.com";
         al.add(m1);
-        al.add(new EyersMemberActivity(R.drawable.logo_vi2,"이름 : 김우재 학번 : 201512014","전공 : 스마트미디어 기술분야 : Web","홈페이지 : www.naver.com","이메일 : kwj1270@naver.com"));
+        al.add(new EyersMemberActivity(R.drawable.kwj2,"이름 : 김우재  학번 : 201512014","전공 : 스마트미디어 기술분야 : Web","https://github.com/kwj1270","이메일 : kwj1270@naver.com"));
+        al.add(new EyersMemberActivity(R.drawable.ldy,"이름 : 이다연  학번 : 201762041","전공 : 스마트미디어 기술분야 : Web","https://www.instagram.com/2day25n_98","이메일 : dokr1125@naver.com"));
+        al.add(new EyersMemberActivity(R.drawable.ssh,"이름 : 송수현  학번 : 201762011","전공 : 스마트미디어 기술분야 : Web","없음","이메일 : tngus3347@naver.com"));
+        al.add(new EyersMemberActivity(R.drawable.jej,"이름 : 진의정  학번 : 201962051","전공 : 스마트미디어 기술분야 : 댄스","https://www.instagram.com/ui_jjeong/","이메일 : wlsdmlwjd95@naver.com"));
 
         TextView titleView = (TextView)findViewById(R.id.titleView);
         //텍스트 그레디언트
