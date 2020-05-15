@@ -24,7 +24,7 @@
         <activity android:name=".view.NoticeActivity"/>
         <activity android:name=".view.FreeBoardActivity"/>
         <activity android:name=".view.MemberActivity"/>
-        <activity android:name=".view.PageTestFour"/>
+        <activity android:name=".view.FAQActivity"/>
         <activity android:name=".view.AdminActivity"/>
         <activity android:name=".view.TestActivity" />
 

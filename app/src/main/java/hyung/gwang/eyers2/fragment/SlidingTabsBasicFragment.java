@@ -16,7 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import hyung.gwang.eyers2.R;
-import hyung.gwang.eyers2.view.PageTestFour;
+import hyung.gwang.eyers2.view.FAQActivity;
 import hyung.gwang.eyers2.view.NoticeActivity;
 import hyung.gwang.eyers2.view.MemberActivity;
 import hyung.gwang.eyers2.view.FreeBoardActivity;
@@ -113,7 +113,7 @@ public class SlidingTabsBasicFragment extends Fragment {
                 return "자유 게시판";
             }
             else if (position == 3){
-                return "QnA 게시판";
+                return "FAQ 게시판";
             }
             return "게시판 " + (position );
         }
@@ -190,14 +190,14 @@ public class SlidingTabsBasicFragment extends Fragment {
                     break;
                 case 3:
                     Button button4 = (Button) view.findViewById(R.id.testbutton);
-                    button4.setBackgroundResource(R.drawable.qna);
+                    button4.setBackgroundResource(R.drawable.faq);
                     button4.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             Intent intent;
                             switch (v.getId()) {
                                 case R.id.testbutton:
-                                    intent = new Intent(v.getContext(), PageTestFour.class);
+                                    intent = new Intent(v.getContext(), FAQActivity.class);
                                     intent.putExtra("key_id",getuser);
                                     Log.e("프래그먼트에서 다른데 인텐트될때 값 확인",getuser);
                                     startActivity(intent);

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@color/black_dark"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <TextView
+        android:id="@+id/titleView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="F A Q"
+        android:textSize="20dp"
+
+        android:layout_gravity="center_horizontal"
+        />
+    <ExpandableListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="#ffffff"
+        android:dividerHeight="3dp"
+        android:outlineSpotShadowColor="@color/colorPrimary"
+        android:indicatorLeft="?android:attr/expandableListPreferredItemIndicatorLeft"
+        android:id="@+id/mylist" />
+</LinearLayout>
