@@ -92,6 +92,7 @@ public class FreeBoardDetailActivity extends AppCompatActivity {
             }
         });
 
+        //안드로이드 값 전달> php 통신 > DB > php > 안드로이드에서 값 수신.
         Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
