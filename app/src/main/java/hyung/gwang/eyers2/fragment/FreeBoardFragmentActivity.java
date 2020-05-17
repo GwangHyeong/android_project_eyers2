@@ -67,6 +67,7 @@ public class FreeBoardFragmentActivity extends Fragment {
         adapter = new FreeBoardCommentListAdapter(v.getContext(), freeboardcommentList);
         fbcommentListView.setAdapter(adapter);
 
+        //게시판 통신부분
         Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -77,9 +78,10 @@ public class FreeBoardFragmentActivity extends Fragment {
                     JSONObject jsonObject = new JSONObject(response);
                     JSONArray jsonArray = jsonObject.getJSONArray("response");
 
-                    String fbcomment_content, fbcomment_name, fbcomment_freeboard;
+
                     int fbcomment_seq;
                     int count = 0;
+                    String fbcomment_content, fbcomment_name, fbcomment_freeboard;
                     while (count < jsonArray.length()) {
                         JSONObject object = jsonArray.getJSONObject(count); //length값주기
                         fbcomment_content = object.getString("fbcomment_content");
@@ -93,8 +95,8 @@ public class FreeBoardFragmentActivity extends Fragment {
                         FreeBoardCommentListRequest freeboardcomment = new FreeBoardCommentListRequest(fbcomment_content, fbcomment_name, fbcomment_freeboard, fbcomment_seq);
                         Log.e(this.getClass().getName(), String.valueOf(freeboardcomment));
 
+
                         freeboardcommentList.add(freeboardcomment);
-                        //????????? 이거 넣었더니 됨 어뎁터를 위에 선언했었는데 흠...//
                         adapter = new FreeBoardCommentListAdapter(v.getContext(), freeboardcommentList);
                         fbcommentListView.setAdapter(adapter);
                         count++;
