@@ -140,10 +140,14 @@ public class LoginActivity extends AppCompatActivity {
 
                     @Override
                     public void onResponse(String response) {
+                        Log.e(this.getClass().getName(), response);
+                        Log.e(this.getClass().getName(), "리스폰 값이 이거래");
                         try {
                             JSONObject jsonResponse = new JSONObject(response); //제이슨객채 생성
+                            //String success = jsonResponse.getString("success"); //키값 success인거 가져오기
                             boolean success = jsonResponse.getBoolean("success"); // boolean 타입으로 키가 success인 값 가져오기
-
+                            Log.e(this.getClass().getName(), String.valueOf(success));
+                            Log.e("암호화확인중2", String.valueOf(success));
                             //로그인성공시
                             if (success) {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
@@ -164,13 +168,14 @@ public class LoginActivity extends AppCompatActivity {
                                         .setNegativeButton("다시시도", null)
                                         .create();
                                 dialog.show();
+
                                 Log.e(this.getClass().getName(), "로그인실패");
                             }
 
                             //예외발생시
                         } catch (Exception e) {
                             e.printStackTrace();
-                            Log.e(this.getClass().getName(), "로그인 예외발생");
+                            Log.e(this.getClass().getName(), "로그인 예외발생"+response);
                         }
                     }
                 };

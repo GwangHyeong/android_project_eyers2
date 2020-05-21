@@ -23,14 +23,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import hyung.gwang.eyers2.R;
 import hyung.gwang.eyers2.adapter.FreeBoardCommentListAdapter;
-import hyung.gwang.eyers2.adapter.FreeBoardListAdapter;
-import hyung.gwang.eyers2.adapter.NoticeListAdapter;
-import hyung.gwang.eyers2.detail.FreeBoardDetailActivity;
 import hyung.gwang.eyers2.request.FreeBoardCommentListRequest;
 import hyung.gwang.eyers2.request.FreeBoardCommentRequest;
-import hyung.gwang.eyers2.request.FreeBoardDetailRequest;
-import hyung.gwang.eyers2.request.FreeBoardRequest;
-import hyung.gwang.eyers2.request.NoticeRequest;
+
 
 public class FreeBoardFragmentActivity extends Fragment {
 
