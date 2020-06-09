@@ -15,6 +15,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.Volley;
 import com.captaindroid.tvg.Tvg;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -36,7 +39,9 @@ import hyung.gwang.eyers2.R;
 import hyung.gwang.eyers2.adapter.FreeBoardListAdapter;
 import hyung.gwang.eyers2.detail.FreeBoardDetailActivity;
 import hyung.gwang.eyers2.detail.NoticeDetailActivity;
+import hyung.gwang.eyers2.request.FreeBoardDeleteRequest;
 import hyung.gwang.eyers2.request.FreeBoardRequest;
+import hyung.gwang.eyers2.request.FreeBoardWriteRequest;
 import hyung.gwang.eyers2.write.FreeBoardWriteActivity;
 
 public class FreeBoardActivity extends AppCompatActivity {
@@ -109,6 +114,15 @@ public class FreeBoardActivity extends AppCompatActivity {
         freeboardListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.e("LongClick", "아이템클릭, postion : " + position +
+                        ", id : " + id);
+                Log.e("LongClick","L_TEST"+position);
+                TextView nameText = (TextView)view.findViewById(R.id.nameText);
+                TextView seqText = (TextView)view.findViewById(R.id.seqText);
+                final String longclickseq = (String) seqText.getText();
+                final String longclickid = (String) nameText.getText();
+                Log.e("LongClick",longclickid +"작성자확인");
+                Log.e("LongClick",longclickseq +"게시글번호확인");
 
                 AlertDialog.Builder alert = new AlertDialog.Builder(FreeBoardActivity.this);
                 alert.setTitle("게시글 삭제");
@@ -123,6 +137,48 @@ public class FreeBoardActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
+
+                        if(getuser.equals(longclickid)){
+                            Log.e("게시글삭제","아이디가같습니다");
+                            //자유게시판 삭제 시작
+                            Response.Listener<String> responseListener = new Response.Listener<String>() {
+                                @Override
+                                public void onResponse(String response) {
+                                    Log.e(this.getClass().getName(), response);
+                                    Log.e(this.getClass().getName(), "리스폰 값이 이거래");
+                                    Log.e(this.getClass().getName(), "자유게시판 삭제");
+                                    try {
+                                        JSONObject jsonResponse = new JSONObject(response);
+                                        boolean success = jsonResponse.getBoolean("success");
+                                        Log.e(this.getClass().getName(), String.valueOf(success));
+
+                                        if (success) {//사용할 수 있는 아이디라면
+                                            Toast.makeText(FreeBoardActivity.this, "삭제 완료", Toast.LENGTH_LONG).show();
+                                            Log.e(this.getClass().getName(), "삭제성공");
+                                            Log.e(this.getClass().getName(), String.valueOf(jsonResponse));
+
+                                        } else {//사용할 수 없는 아이디라면
+                                            Log.e(this.getClass().getName(), "삭제실패");
+                                        }
+
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
+                                        Log.e(this.getClass().getName(), "예외발생");
+
+                                    }
+                                }
+                            };//Response.Listener 완료
+
+                            //Volley 라이브러리를 이용해서 실제 서버와 통신을 구현하는 부분
+                            FreeBoardDeleteRequest freeBoardDeleteRequest = new FreeBoardDeleteRequest(longclickseq,responseListener);
+                            RequestQueue queue = Volley.newRequestQueue(FreeBoardActivity.this);
+                            queue.add(freeBoardDeleteRequest);
+                        }
+                        else{
+                            Toast.makeText(FreeBoardActivity.this, "삭제 불가(작성자 본인만 삭제가능)", Toast.LENGTH_LONG).show();
+                            Log.e("게시글삭제","아이디가다릅니다");
+                        }
+
                     }
                 });
                 alert.show();
