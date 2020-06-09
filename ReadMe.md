@@ -78,4 +78,6 @@ database structure:
 ### Board List
 
 * 게시판 리스트
-* 
+* 머터리얼 디자인 (연필모양) 클릭시 게시글 작성가능
+* 로그인시 아이디를 가져와 작성자 자동입력.
+* FreeBoardDetail.php , FreeBoardList.php , FreeBoardWrite.php , FreeBoardActivity.class , FreeBoardFragmentActivity.class , FreeBoardWriteActivity.class , FreeBoardListAdapter.class 
