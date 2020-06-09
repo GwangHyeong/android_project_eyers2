@@ -1,6 +1,7 @@
 package hyung.gwang.eyers2.view;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
@@ -29,6 +30,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import hyung.gwang.eyers2.R;
 import hyung.gwang.eyers2.adapter.FreeBoardListAdapter;
@@ -76,7 +78,6 @@ public class FreeBoardActivity extends AppCompatActivity {
         //클릭
         freeboardListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
-
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.e("test", "아이템클릭, postion : " + position +
@@ -101,6 +102,31 @@ public class FreeBoardActivity extends AppCompatActivity {
                 int listentest = position;
                 Log.e("ListenerTest", String.valueOf(listentest));
                 startActivity(intent);
+            }
+        });
+
+        // long click event
+        freeboardListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+
+                AlertDialog.Builder alert = new AlertDialog.Builder(FreeBoardActivity.this);
+                alert.setTitle("게시글 삭제");
+                alert.setMessage("삭제하시겠습니까?");
+                alert.setNegativeButton("돌아가기", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                alert.show();
+                return true;
             }
         });
 
