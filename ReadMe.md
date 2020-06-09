@@ -62,34 +62,13 @@ database structure:
 * PW는 DB에 암호화 되어있으므로 해당 알고리즘의 비교 함수를 통해서 비교한다.
 * 비교값이 false면 Alert창 띄우기.
 * 비교값이 true면 로그인 완료.
-* UserLogin.php , LoginrActivity.class , LoginRequest.class
+* UserLogin.php , LoginrActivity.class , LoginRequest.class.  
+
 ![Screenshot_20200609-110921_eyers2](https://user-images.githubusercontent.com/54932560/84102692-21d40180-aa4c-11ea-95cc-aad544fe5a20.jpg)
-
-
 
 
 ### Sliding Tab
 
 * 슬라이딩 탭
 * 안드로이드 스튜디오 Template에서 제공하는 TabbedActivity 변형
-* Click on the "Preview" button
-* The pages that will be imported are shown below
-* Click on the "Import" button that has appeared
-* Confirm to import the pages
 
-![Import the uploaded page tree file](https://aimeos.org/docs/images/Aimeos-typo3-pages-import.png)
-
-Now you have a new page "Shop" in your page tree including all required sub-pages.
-
-## License
-
-The Aimeos TYPO3 extension is licensed under the terms of the GPL Open Source
-license and is available for free.
-
-## Links
-
-* [Web site](https://aimeos.org/integrations/typo3-shop-extension/)
-* [Documentation](https://aimeos.org/docs/TYPO3)
-* [Forum](https://aimeos.org/help/typo3-extension-f16/)
-* [Issue tracker](https://github.com/aimeos/aimeos-typo3/issues)
-* [Source code](https://github.com/aimeos/aimeos-typo3)
