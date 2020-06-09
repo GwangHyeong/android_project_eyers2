@@ -71,7 +71,7 @@ database structure:
 
 * 슬라이딩 탭
 * 안드로이드 스튜디오 Template에서 제공하는 TabbedActivity 변형  
-* SlidingTabLayout.class , SlidingTabsBasicFragment.class , SlidingTabStrip.class
+* SlidingTabLayout.class , SlidingTabsBasicFragment.class , SlidingTabStrip.class  
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/54932560/84109064-c4947c00-aa5c-11ea-981e-7f32ac10890c.gif)  
 
 
