@@ -20,6 +20,8 @@
     - [Login](#login)
     - [Sliding Tab](#sliding-tab)
     - [Board List](#board-list-board-comment)
+    - [Member List](#member-list)
+    - [FAQ](#faq)
 
 ## Installation
 
@@ -86,4 +88,18 @@ database structure:
 * FreeBoardDetail.php , FreeBoardList.php , FreeBoardWrite.php , FreeCommentWrite.php FreeBoardActivity.class , FreeBoardFragmentActivity.class , FreeBoardWriteActivity.class , FreeBoardListAdapter.class 
 
 ![ezgif com-video-to-gif (1)](https://user-images.githubusercontent.com/54932560/84217315-d2064080-ab06-11ea-9e9f-a53a277d541e.gif)
+
+### Member List
+
+* 동아리 회원 목록 이벤트
+* 개발자가 직접 추가하는 방식(데이터베이스 사용x)
+* MemberAdapter.class , EyersMemberActivity.class , MemberActivity.class  
+![ezgif com-video-to-gif (2)](https://user-images.githubusercontent.com/54932560/84218553-a20c6c80-ab09-11ea-84f2-6a0f774340f6.gif)
+
+### FAQ
+
+* FAQ(Frequently Asked Questions)  
+* ArrayList 사용
+* FAQActivity.class , FAQAdapter.class , FAQDetailActivity.class  
+![ezgif com-video-to-gif (3)](https://user-images.githubusercontent.com/54932560/84219880-6c1cb780-ab0c-11ea-99d6-8c352548e0b9.gif)
 
