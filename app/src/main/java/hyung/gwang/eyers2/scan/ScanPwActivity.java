@@ -1,5 +1,6 @@
 package hyung.gwang.eyers2.scan;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -18,7 +19,9 @@ import org.json.JSONObject;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import hyung.gwang.eyers2.R;
+import hyung.gwang.eyers2.login.LoginActivity;
 import hyung.gwang.eyers2.request.ScanPwRequest;
+import hyung.gwang.eyers2.write.NewPwActivity;
 
 public class ScanPwActivity extends AppCompatActivity {
     /**
@@ -66,6 +69,7 @@ public class ScanPwActivity extends AppCompatActivity {
                     dialog.show();
                     return;
                 }
+
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -78,12 +82,22 @@ public class ScanPwActivity extends AppCompatActivity {
 
                             //가져온 값이 false가 아닐경우.
                             if (!success.equals("false")) {
-                                AlertDialog.Builder builder = new AlertDialog.Builder(ScanPwActivity.this);
-                                dialog = builder.setMessage("찾는 비밀번호는 : " + success + " 입니다.")
-                                        .setPositiveButton("확인", null)
-                                        .create();
-                                dialog.show();
+  //                              AlertDialog.Builder builder = new AlertDialog.Builder(ScanPwActivity.this);
+                                String user_id = idText.getText().toString();
+                                Log.e("pw찾기 보낸값",user_id);
+                                Intent intent;
+                                intent = new Intent(ScanPwActivity.this, NewPwActivity.class);
+                                intent.putExtra("user_id",user_id);
+                                ScanPwActivity.this.startActivity(intent);
+
+//                                dialog = builder.setMessage("찾는 비밀번호는 : " + success + " 입니다.")
+//                                        .setPositiveButton("확인", null)
+//                                        .create();
+//                                dialog.show();
+
                                 Log.e(this.getClass().getName(), "pw찾기성공");
+
+                                finish();
 
                             } else {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(ScanPwActivity.this);
