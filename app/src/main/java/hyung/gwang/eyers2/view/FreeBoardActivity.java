@@ -42,6 +42,7 @@ import hyung.gwang.eyers2.detail.NoticeDetailActivity;
 import hyung.gwang.eyers2.request.FreeBoardDeleteRequest;
 import hyung.gwang.eyers2.request.FreeBoardRequest;
 import hyung.gwang.eyers2.request.FreeBoardWriteRequest;
+import hyung.gwang.eyers2.write.FreeBoardCommentWriteActivity;
 import hyung.gwang.eyers2.write.FreeBoardWriteActivity;
 
 public class FreeBoardActivity extends AppCompatActivity {
@@ -173,6 +174,15 @@ public class FreeBoardActivity extends AppCompatActivity {
                             FreeBoardDeleteRequest freeBoardDeleteRequest = new FreeBoardDeleteRequest(longclickseq,responseListener);
                             RequestQueue queue = Volley.newRequestQueue(FreeBoardActivity.this);
                             queue.add(freeBoardDeleteRequest);
+
+                            //기존액티비티를 종료하고 댓글작성시 다시 액티비티를 여는 방법
+                            //이방법이 맞는지는 모르겠다.
+                            Intent intent;
+                            intent = new Intent(FreeBoardActivity.this, FreeBoardActivity.class);
+                            intent.putExtra("key_id",getuser);
+                            startActivity(intent);
+
+                            finish();
                         }
                         else{
                             Toast.makeText(FreeBoardActivity.this, "삭제 불가(작성자 본인만 삭제가능)", Toast.LENGTH_LONG).show();
