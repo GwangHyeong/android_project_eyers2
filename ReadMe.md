@@ -19,7 +19,9 @@
     - [Member Register](#member-register)
     - [Login](#login)
     - [Sliding Tab](#sliding-tab)
-    - [Board List](#board-list)
+    - [Board List](#board-list-board-comment)
+    - [Member List](#member-list)
+    - [FAQ](#faq)
 
 ## Installation
 
@@ -75,9 +77,29 @@ database structure:
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/54932560/84109064-c4947c00-aa5c-11ea-981e-7f32ac10890c.gif)  
 
 
-### Board List
+### Board List Board Comment
 
 * 게시판 리스트
 * 머터리얼 디자인 (연필모양) 클릭시 게시글 작성가능
+* 게시글 안에서 머터리얼 디자인 (연필모양) 클릭시 댓글 작성가능
 * 로그인시 아이디를 가져와 작성자 자동입력.
-* FreeBoardDetail.php , FreeBoardList.php , FreeBoardWrite.php , FreeBoardActivity.class , FreeBoardFragmentActivity.class , FreeBoardWriteActivity.class , FreeBoardListAdapter.class 
+* 로그인시 ID값을 계속 가지고 있어 댓글작성시 사용.
+* 댓글 작성 완료시 작성한 댓글 바로 확인가능.
+* FreeBoardDetail.php , FreeBoardList.php , FreeBoardWrite.php , FreeCommentWrite.php FreeBoardActivity.class , FreeBoardFragmentActivity.class , FreeBoardWriteActivity.class , FreeBoardListAdapter.class 
+
+![ezgif com-video-to-gif (1)](https://user-images.githubusercontent.com/54932560/84217315-d2064080-ab06-11ea-9e9f-a53a277d541e.gif)
+
+### Member List
+
+* 동아리 회원 목록 이벤트
+* 개발자가 직접 추가하는 방식(데이터베이스 사용x)
+* MemberAdapter.class , EyersMemberActivity.class , MemberActivity.class  
+![ezgif com-video-to-gif (2)](https://user-images.githubusercontent.com/54932560/84218553-a20c6c80-ab09-11ea-84f2-6a0f774340f6.gif)
+
+### FAQ
+
+* FAQ(Frequently Asked Questions)  
+* ArrayList 사용
+* FAQActivity.class , FAQAdapter.class , FAQDetailActivity.class  
+![ezgif com-video-to-gif (3)](https://user-images.githubusercontent.com/54932560/84219880-6c1cb780-ab0c-11ea-99d6-8c352548e0b9.gif)
+
