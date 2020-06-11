@@ -22,6 +22,9 @@
     - [Board List](#board-list-board-comment)
     - [Member List](#member-list)
     - [FAQ](#faq)
+    - [Board Delete](#board-delete)
+    - [Change password](#chage-password)
+    
 
 ## Installation
 
@@ -103,3 +106,22 @@ database structure:
 * FAQActivity.class , FAQAdapter.class , FAQDetailActivity.class  
 ![ezgif com-video-to-gif (3)](https://user-images.githubusercontent.com/54932560/84219880-6c1cb780-ab0c-11ea-99d6-8c352548e0b9.gif)
 
+### Board Delete
+
+* board delete
+* 본인이 작성한글만 삭제가능.
+* 본인이 작성하지 않은 글은 삭제 불가
+* listview longclickevent 사용
+* FreeBoardDelete.php , FreeBoardDeleteRequest.class  
+
+![ezgif com-video-to-gif (4)](https://user-images.githubusercontent.com/54932560/84341289-b326ad80-abdd-11ea-9b77-faa9742ba2c8.gif)  
+
+### Change password
+
+* Change password
+* 비밀번호를 잊어 버렸을때 사용자에게 새로운 암호를 입력받는다.
+* 새롭게 입력받는 암호도 암호화 시켜 저장
+* user_id,user_name,user_studentnumber 값이 전부 일치하면 새로운 비밀번호 입력창 제시
+* scanPw.php , newPw.php , NewPwRequest.class , ScanPwActivity.class , NewPwActivity.class   
+
+![ezgif com-gif-maker (2)](https://user-images.githubusercontent.com/54932560/84342299-2df0c800-abe0-11ea-85e2-fff02b755e7f.gif)
