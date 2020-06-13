@@ -125,3 +125,6 @@ database structure:
 * scanPw.php , newPw.php , NewPwRequest.class , ScanPwActivity.class , NewPwActivity.class   
 
 ![ezgif com-gif-maker (2)](https://user-images.githubusercontent.com/54932560/84342299-2df0c800-abe0-11ea-85e2-fff02b755e7f.gif)
+
+
+### License
