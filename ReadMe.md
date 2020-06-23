@@ -56,7 +56,8 @@ database structure:
 * 가입완료(USER 테이블에 회원정보 저장)
 * UserRegister.php , RegisterActivity.class , RegisterRequest.class
 
-![Screenshot_20200609-110938_eyers2](https://user-images.githubusercontent.com/54932560/84102257-e553d600-aa4a-11ea-9dca-bf2c3cbca195.jpg)
+![ezgif com-video-to-gif (5)](https://user-images.githubusercontent.com/54932560/85371504-490df100-b56b-11ea-83da-40069b9864ed.gif)
+
 
 
 
