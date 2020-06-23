@@ -70,7 +70,7 @@ database structure:
 * 비교값이 true면 로그인 완료.
 * UserLogin.php , LoginrActivity.class , LoginRequest.class.  
 
-![ezgif com-video-to-gif (6)](https://user-images.githubusercontent.com/54932560/85374671-15819580-b570-11ea-8093-56617ba9c8fb.gif)
+![ezgif com-video-to-gif (7)](https://user-images.githubusercontent.com/54932560/85374769-3a760880-b570-11ea-9166-2cae2d1a5a6e.gif)
 
 
 
