@@ -70,7 +70,8 @@ database structure:
 * 비교값이 true면 로그인 완료.
 * UserLogin.php , LoginrActivity.class , LoginRequest.class.  
 
-![Screenshot_20200609-110921_eyers2](https://user-images.githubusercontent.com/54932560/84102692-21d40180-aa4c-11ea-95cc-aad544fe5a20.jpg)
+![ezgif com-video-to-gif (6)](https://user-images.githubusercontent.com/54932560/85374671-15819580-b570-11ea-8093-56617ba9c8fb.gif)
+
 
 
 ### Sliding Tab
