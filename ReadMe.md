@@ -22,6 +22,9 @@
     - [Board List](#board-list-board-comment)
     - [Member List](#member-list)
     - [FAQ](#faq)
+    - [Board Delete](#board-delete)
+    - [Change password](#chage-password)
+    
 
 ## Installation
 
@@ -53,7 +56,8 @@ database structure:
 * 가입완료(USER 테이블에 회원정보 저장)
 * UserRegister.php , RegisterActivity.class , RegisterRequest.class
 
-![Screenshot_20200609-110938_eyers2](https://user-images.githubusercontent.com/54932560/84102257-e553d600-aa4a-11ea-9dca-bf2c3cbca195.jpg)
+![ezgif com-video-to-gif (5)](https://user-images.githubusercontent.com/54932560/85371504-490df100-b56b-11ea-83da-40069b9864ed.gif)
+
 
 
 
@@ -66,7 +70,8 @@ database structure:
 * 비교값이 true면 로그인 완료.
 * UserLogin.php , LoginrActivity.class , LoginRequest.class.  
 
-![Screenshot_20200609-110921_eyers2](https://user-images.githubusercontent.com/54932560/84102692-21d40180-aa4c-11ea-95cc-aad544fe5a20.jpg)
+![ezgif com-video-to-gif (7)](https://user-images.githubusercontent.com/54932560/85374769-3a760880-b570-11ea-9166-2cae2d1a5a6e.gif)
+
 
 
 ### Sliding Tab
@@ -103,3 +108,25 @@ database structure:
 * FAQActivity.class , FAQAdapter.class , FAQDetailActivity.class  
 ![ezgif com-video-to-gif (3)](https://user-images.githubusercontent.com/54932560/84219880-6c1cb780-ab0c-11ea-99d6-8c352548e0b9.gif)
 
+### Board Delete
+
+* board delete
+* 본인이 작성한글만 삭제가능.
+* 본인이 작성하지 않은 글은 삭제 불가
+* listview longclickevent 사용
+* FreeBoardDelete.php , FreeBoardDeleteRequest.class  
+
+![ezgif com-video-to-gif (4)](https://user-images.githubusercontent.com/54932560/84341289-b326ad80-abdd-11ea-9b77-faa9742ba2c8.gif)  
+
+### Change password
+
+* Change password
+* 비밀번호를 잊어 버렸을때 사용자에게 새로운 암호를 입력받는다.
+* 새롭게 입력받는 암호도 암호화 시켜 저장
+* user_id,user_name,user_studentnumber 값이 전부 일치하면 새로운 비밀번호 입력창 제시
+* scanPw.php , newPw.php , NewPwRequest.class , ScanPwActivity.class , NewPwActivity.class   
+
+![ezgif com-gif-maker (2)](https://user-images.githubusercontent.com/54932560/84342299-2df0c800-abe0-11ea-85e2-fff02b755e7f.gif)
+
+
+### License
