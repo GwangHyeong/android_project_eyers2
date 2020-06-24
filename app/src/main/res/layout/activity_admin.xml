@@ -16,4 +16,10 @@
         android:layout_height="wrap_content"
         android:text="관리자 공지사항 작성" />
 
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="동아리 회원 입력" />
+
 </LinearLayout>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/imgText"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:ems="10"
+        android:inputType="none"
+        android:scrollHorizontally="false"
+        android:hint="동아리 회원 사진 링크." />
+    <EditText
+        android:id="@+id/nameText"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:ems="10"
+        android:inputType="none"
+        android:scrollHorizontally="false"
+        android:hint="동아리 회원 이름 : 학번 : " />
+    <EditText
+        android:id="@+id/emailText"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:ems="10"
+        android:inputType="none"
+        android:scrollHorizontally="false"
+        android:hint="이메일" />
+    <EditText
+        android:id="@+id/skillText"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:ems="10"
+        android:inputType="none"
+        android:scrollHorizontally="false"
+        android:hint="전공" />
+    <EditText
+        android:id="@+id/homepageText"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:ems="10"
+        android:inputType="none"
+        android:scrollHorizontally="false"
+        android:hint="홈페이지" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_blue_back"
+        android:textColor="#ffffff"
+        android:text="동아리 회원 추가하기" />
+
+    <EditText
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="invisible"
+        android:id="@+id/seqText"
+        />
+
+</LinearLayout>
