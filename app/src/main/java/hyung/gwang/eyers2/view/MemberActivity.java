@@ -57,7 +57,7 @@ public class MemberActivity extends AppCompatActivity {
         //adapter
         MemberAdapter adapter = new MemberAdapter(getApplicationContext(),R.layout.member_list_row,al);
 
-        ListView lv = (ListView)findViewById(R.id.listView1);
+        ListView lv = (ListView)findViewById(R.id.memberlistView);
         lv.setAdapter(adapter);
     }
 }

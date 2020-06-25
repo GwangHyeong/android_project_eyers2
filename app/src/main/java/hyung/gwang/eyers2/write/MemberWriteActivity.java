@@ -22,6 +22,7 @@ import java.util.Date;
 import androidx.appcompat.app.AppCompatActivity;
 import hyung.gwang.eyers2.R;
 import hyung.gwang.eyers2.request.FreeBoardWriteRequest;
+import hyung.gwang.eyers2.request.MemberRequest;
 import hyung.gwang.eyers2.request.NoticeWriteRequest;
 import hyung.gwang.eyers2.view.FreeBoardActivity;
 
@@ -76,11 +77,6 @@ public class MemberWriteActivity extends AppCompatActivity {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm", java.util.Locale.getDefault());
         Date date = new Date();
         String strDate = dateFormat.format(date);
-
-
-
-
-
         String member_name = nameText.getText().toString();
         String member_email = emailText.getText().toString();
         String member_img = imgText.getText().toString();
@@ -94,7 +90,7 @@ public class MemberWriteActivity extends AppCompatActivity {
             public void onResponse(String response) {
                 Log.e(this.getClass().getName(), response);
                 Log.e(this.getClass().getName(), "리스폰 값이 이거래");
-                Log.e(this.getClass().getName(), "공지사항 작성 시작");
+                Log.e(this.getClass().getName(), "동아리회원 목록 작성 시작");
                 try {
                     JSONObject jsonResponse = new JSONObject(response);
                     boolean success = jsonResponse.getBoolean("success");
@@ -119,9 +115,9 @@ public class MemberWriteActivity extends AppCompatActivity {
         };//Response.Listener 완료
 
         //Volley 라이브러리를 이용해서 실제 서버와 통신을 구현하는 부분
-        NoticeWriteRequest noticeWriteRequest = new NoticeWriteRequest(member_name, member_email, member_img, member_seq, responseListener);
+        MemberRequest memberRequest = new MemberRequest(member_name, member_email, member_img, member_seq,member_skill,member_homepage, responseListener);
         RequestQueue queue = Volley.newRequestQueue(MemberWriteActivity.this);
-        queue.add(noticeWriteRequest);
+        queue.add(memberRequest);
     }
 
     //아이디 선언

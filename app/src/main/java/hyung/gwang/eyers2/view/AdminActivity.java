@@ -9,6 +9,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import hyung.gwang.eyers2.R;
 import hyung.gwang.eyers2.write.AdminWriteActivity;
+import hyung.gwang.eyers2.write.MemberWriteActivity;
 
 public class AdminActivity  extends AppCompatActivity {
     /**상단 선언부**/
@@ -33,7 +34,7 @@ public class AdminActivity  extends AppCompatActivity {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AdminActivity.this, AdminWriteActivity.class);
+                Intent intent = new Intent(AdminActivity.this, MemberWriteActivity.class);
                 AdminActivity.this.startActivity(intent);
             }
         });

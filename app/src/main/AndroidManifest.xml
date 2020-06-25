@@ -27,9 +27,10 @@
         <activity android:name=".view.FAQActivity"/>
         <activity android:name=".view.AdminActivity"/>
         <activity android:name=".view.TestActivity" />
+        <activity android:name=".view.MemberTest"/>
+
+
         <activity android:name=".write.NewPwActivity"/>
-
-
         <activity android:name=".write.AdminWriteActivity"/>
         <activity android:name=".write.FreeBoardWriteActivity"/>
         <activity android:name=".write.FreeBoardCommentWriteActivity" />
