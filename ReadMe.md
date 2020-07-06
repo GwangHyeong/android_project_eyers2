@@ -39,9 +39,9 @@
 
 ### Database
 
-database structure:
+database structure:  
 
-![그림1](https://user-images.githubusercontent.com/54932560/84100989-fea75300-aa47-11ea-8e43-b9d51f7b7324.png)
+![캡처](https://user-images.githubusercontent.com/54932560/85809538-3fff6880-b793-11ea-97c8-5a86dd9d8e09.PNG)
 
 
 ## Activity info
@@ -97,7 +97,8 @@ database structure:
 ### Member List
 
 * 동아리 회원 목록 이벤트
-* 개발자가 직접 추가하는 방식(데이터베이스 사용x)
+* MEMBER 테이블사용
+* 기수 대로 정렬
 * MemberAdapter.class , EyersMemberActivity.class , MemberActivity.class  
 ![ezgif com-video-to-gif (2)](https://user-images.githubusercontent.com/54932560/84218553-a20c6c80-ab09-11ea-84f2-6a0f774340f6.gif)
 
