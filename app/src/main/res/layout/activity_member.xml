@@ -19,7 +19,7 @@
         />
 
     <ListView
-        android:id="@+id/memberlistView"
+        android:id="@+id/memberListView"
         android:divider="#8977ad"
         android:dividerHeight="3dp"
         android:layout_width="match_parent"

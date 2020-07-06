@@ -5,8 +5,13 @@ public class MemberTestRequest {
     String skill;
     String homepage;
     String email;
+
+
+
+    String img;
     int seq;
-    public MemberTestRequest(String name, String skill, String homepage,String email, int seq){
+    public MemberTestRequest(String img,String name, String skill, String homepage,String email, int seq){
+        this.img = img;
         this.name = name;
         this.skill = skill;
         this.homepage = homepage;
@@ -42,6 +47,13 @@ public class MemberTestRequest {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
     public int getSeq(){
         return seq;

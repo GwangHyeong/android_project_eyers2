@@ -209,9 +209,11 @@ public class RegisterActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         Log.e(this.getClass().getName(), "가입시작");
+                        Log.e(this.getClass().getName(), response);
                         try {
                             JSONObject jsonResponse = new JSONObject(response);
                             boolean success = jsonResponse.getBoolean("success");
+                            Log.e(this.getClass().getName(), String.valueOf(jsonResponse));
 
                             if (success) {//사용할 수 있는 아이디라면
                                 AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);

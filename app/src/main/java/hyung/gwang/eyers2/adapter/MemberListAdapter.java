@@ -1,11 +1,19 @@
 package hyung.gwang.eyers2.adapter;
 
 import android.content.Context;
+import android.graphics.Movie;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
+import com.bumptech.glide.signature.ObjectKey;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -37,15 +45,33 @@ public class MemberListAdapter extends BaseAdapter {
         return position;
     }
 
+
+
+
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View v = View.inflate(context, R.layout.member_list_row,null);
+        Log.e("날보고있다면 알려줘","ㅇㅅㅇ");
         ImageView imageView1 = (ImageView)v.findViewById(R.id.imageView1);
-        TextView tvName=(TextView)convertView.findViewById(R.id.tvName);
-        TextView tvSkill=(TextView)convertView.findViewById(R.id.tvSkill);
-        TextView tvHomepage=(TextView)convertView.findViewById(R.id.tvHomepage);
-        TextView tvEmail=(TextView)convertView.findViewById(R.id.tvEmail);
-        TextView tvSeq=(TextView)convertView.findViewById(R.id.tvSeq);
+        TextView tvImg=(TextView)v.findViewById(R.id.tvImg);
+        TextView tvName=(TextView)v.findViewById(R.id.tvName);
+        TextView tvSkill=(TextView)v.findViewById(R.id.tvSkill);
+        TextView tvHomepage=(TextView)v.findViewById(R.id.tvHomepage);
+        TextView tvEmail=(TextView)v.findViewById(R.id.tvEmail);
+        TextView tvSeq=(TextView)v.findViewById(R.id.tvSeq);
+
+        tvImg.setText(memberList.get(position).getImg());
+        String testtv = (String) tvImg.getText();
+        Log.e("날보고있다면 알려줘",testtv);
+       // imageView1.setImageResource(R.drawable.kwj2);
+//        Glide.with(context).load(imageView1).apply(new RequestOptions()
+//                .signature(new ObjectKey("signature sting"))
+//                .skipMemoryCache(true)
+//                .diskCacheStrategy(DiskCacheStrategy.NONE)
+//        ).into(imageView1);
+        Picasso.get().load(testtv).into(imageView1);
+        //tvName.setText(memberList.get(position).getName());
         tvName.setText(memberList.get(position).getName());
         tvSkill.setText(memberList.get(position).getSkill());
         tvHomepage.setText(memberList.get(position).getHomepage());
@@ -55,4 +81,5 @@ public class MemberListAdapter extends BaseAdapter {
         return v;
     }
 
-}
+    }
+

@@ -14,7 +14,8 @@ public class RegisterRequest extends StringRequest {
     final static private String URL = "http://eyers1.iwinv.net/UserRegister.php";
     private Map<String, String> parameters;
 
-    public RegisterRequest(String user_seq, String user_id, String user_pw, String user_name, String user_studentnumber, String user_nickname, String user_role, Response.Listener<String> listener) {
+    public RegisterRequest(String user_seq, String user_id, String user_pw, String user_name, String user_studentnumber,
+                           String user_nickname, String user_role, Response.Listener<String> listener) {
         super(Method.POST, URL, listener, null);//해당 URL에 POST방식으로 파마미터들을 전송함
         parameters = new HashMap<>();
         parameters.put("user_seq", user_seq);

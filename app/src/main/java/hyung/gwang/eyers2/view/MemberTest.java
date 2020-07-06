@@ -1,5 +1,6 @@
 package hyung.gwang.eyers2.view;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
@@ -8,10 +9,12 @@ import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.captaindroid.tvg.Tvg;
 
 import org.json.JSONArray;
@@ -40,8 +43,9 @@ public class MemberTest extends AppCompatActivity {
     private ListView memberListView;
     private MemberListAdapter adapter;
     private List<MemberTestRequest> memberList;
+    ImageView imageView;
     String result_seq;
-
+    String url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,9 +55,10 @@ public class MemberTest extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_member);
 
-        memberListView = (ListView)findViewById(R.id.memberlistView);
+        memberListView = (ListView)findViewById(R.id.memberListView);
         memberList = new ArrayList<MemberTestRequest>();
 
+        imageView = (ImageView) findViewById(R.id.imageView1);
         TextView titleView = (TextView)findViewById(R.id.titleView);
         //텍스트 그레디언트
 
@@ -69,34 +74,11 @@ public class MemberTest extends AppCompatActivity {
         adapter = new MemberListAdapter(getApplicationContext(), memberList);
         memberListView.setAdapter(adapter);
 
-        new MemberTest.BackgroundTask().execute();
+        new BackgroundTask().execute();
 
-        //클릭
-        memberListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.e("test", "아이템클릭, postion : " + position +
-                        ", id : " + id);
-                Toast.makeText(getApplicationContext(), " 상세 보기", Toast.LENGTH_SHORT).show();
-                Log.e("ListenerTest","L_TEST"+position);
+        //Glide.with(MemberTest.this).load(member_img).into(imageView);
 
 
-                TextView seqText = (TextView)view.findViewById(R.id.seqText);
-                String result_seq = (seqText.getText().toString());
-                Log.e("result_seq", String.valueOf(result_seq));
-//
-//                Intent intent = new Intent(MemberTest.this, NoticeDetailActivity.class);
-//                //Error 드디어찾은곳. Integer을 형변환 하지않고 String 에 뿌려서 그런듯;?
-//                intent.putExtra("key_id",String.valueOf(result_seq)); //값 전달하기.
-
-//                //값잘넘겻는지 로그캣 확인
-//                int listentest = position;
-//                Log.e("ListenerTest", String.valueOf(listentest));
-//                startActivity(intent);
-            }
-        });
     }
 
 
@@ -123,12 +105,16 @@ public class MemberTest extends AppCompatActivity {
                 URL url = new URL(target);
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
                 InputStream inputStream = httpURLConnection.getInputStream();
+                Log.e("데이터가져오는거 테스트", String.valueOf(inputStream)+"인풋스트림");
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+                Log.e("데이터가져오는거 테스트", String.valueOf(bufferedReader)+"버퍼리더");
                 String temp;//결과 값을 여기에 저장함
                 StringBuilder stringBuilder = new StringBuilder();
-
+                Log.e("데이터가져오는거 테스트", String.valueOf(stringBuilder)+"스트링빌더");
                 //버퍼생성후 한줄씩 가져옴
                 while ((temp = bufferedReader.readLine()) != null) {
+                    Log.e("데이터가져오는거 테스트", String.valueOf(temp)+"스트링");
+
                     stringBuilder.append(temp + "\n");
                 }
 
@@ -159,19 +145,21 @@ public class MemberTest extends AppCompatActivity {
                 JSONObject jsonObject = new JSONObject(result);
                 JSONArray jsonArray = jsonObject.getJSONArray("response");
                 int count = 0;
-                String member_name, member_skill, member_email,member_homepage;
+                String member_name, member_skill, member_email,member_homepage,member_img;
                 int member_seq;
                 /************************/
                 Log.e(this.getClass().getName(), "jsonarray.length값");
                 Log.e(this.getClass().getName(), String.valueOf(jsonArray.length()));
                 Log.e(this.getClass().getName(), String.valueOf(count));
                 /************************/
+
                 //json타입의 값을 하나씩 빼서 NoticeRequest 객체에 저장후 리스트에 추가하는 부분
                 while (count < jsonArray.length()) {
                     Log.e(this.getClass().getName(), "여기 반복문 실행 되는중인가?");
 
                     JSONObject object = jsonArray.getJSONObject(count);
 
+                    member_img = object.getString("member_img");
                     member_name = object.getString("member_name");
                     member_skill = object.getString("member_skill");
                     member_email = object.getString("member_email");
@@ -179,16 +167,19 @@ public class MemberTest extends AppCompatActivity {
                     member_seq = object.getInt("member_seq");
                     /* 안되는 이유가 뭐니 진짜 */
 
+
+
+
                     Log.e(this.getClass().getName(), String.valueOf(count));
+                    Log.e(this.getClass().getName(), String.valueOf(member_img));
                     Log.e(this.getClass().getName(), String.valueOf(member_name));
                     Log.e(this.getClass().getName(), String.valueOf(member_skill));
                     Log.e(this.getClass().getName(), String.valueOf(member_email));
                     Log.e(this.getClass().getName(), String.valueOf(member_homepage));
                     Log.e(this.getClass().getName(), "seq테스트"+String.valueOf(member_seq));
 
-                    MemberTestRequest notice = new MemberTestRequest(member_name,member_skill , member_email,member_homepage, member_seq);
+                    MemberTestRequest notice = new MemberTestRequest(member_img,member_name,member_skill , member_email,member_homepage, member_seq);
                     Log.e(this.getClass().getName(), String.valueOf(notice));
-
                     memberList.add(notice);
                     //????????? 이거 넣었더니 됨 어뎁터를 위에 선언했었는데 흠...//
                     adapter = new MemberListAdapter(getApplicationContext(), memberList);
@@ -196,7 +187,7 @@ public class MemberTest extends AppCompatActivity {
 
 
 
-                    Log.e("리스트뷰클릭TEST44444444", String.valueOf(member_seq));
+                    Log.e("리스트뷰클릭TEST55555", String.valueOf(member_seq));
                     count++;
 
 
